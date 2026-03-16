@@ -1,0 +1,15 @@
+Class: Bárbaro
+
+Atributos:
+- Vida;
+- CD;
+- PE;
+
+Métodos:
+- Escolher Arma (Machado Grande ou Espada Grande); (método próprio)
+(Herdados)
+- Ataque Normal (Machado Grande ou Espada Grande);
+- Ataque Descuidado (Vantagem de Ataque / Vantagem ao oponente);
+- Fúria (-2 PE);
+- Recuperação (+2 PE);
+

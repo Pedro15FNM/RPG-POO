@@ -1,0 +1,15 @@
+Class: Caçador;
+
+Atributos:
+- Vida
+- cd
+- pe
+
+Métodos:
+- Arma do caçador (arma de fogo / arco e flecha);
+
+- habilidade_1 (Tiro Preciso / Marca do Caçador);
+- habilidade_2 (chuva de balas / tiro de flecha);
+- recarregar (depois de 6 tiros / depois de 20 tiros)
+
+- Recuperação (pe total);
