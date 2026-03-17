@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG Character Generator - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Modern+Antiqua&display=swap" rel="stylesheet">
+</head>
+<body class="container-home">
+    <div class="container">
+        <h1 class="title">RPG Character Generator</h1>
+        
+        <div class="menu">
+            <a href="criacao.html" class="btn btn-create">Criar personagem</a>
+            <a href="registro.html" class="btn btn-view">Ver personagens</a>
+            <a href="combate.html" class="btn btn-combat">Combate</a>
+            <a href="creditos.html" class="btn btn-credits">Créditos</a>
+        </div>
+
+        <!-- Exemplo de integração Java + JavaScript -->
+        <div style="margin-top: 40px; padding: 20px; border: 2px solid #ddd; border-radius: 8px;">
+            <h2>🧪 Teste: Java + JavaScript</h2>
+            <button id="botaoTeste" class="btn" style="background-color: #4CAF50;">Clique para chamar o Java</button>
+            <div id="resposta" style="margin-top: 20px; padding: 15px; background-color: #f0f0f0; border-radius: 5px; display: none;">
+                <p id="textoResposta"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Elemento do botão
+        const botaoTeste = document.getElementById('botaoTeste');
+        const divResposta = document.getElementById('resposta');
+        const textoResposta = document.getElementById('textoResposta');
+
+        // Adiciona evento de clique ao botão
+        botaoTeste.addEventListener('click', function() {
+            botaoTeste.textContent = 'Enviando requisição...';
+            botaoTeste.disabled = true;
+
+            // Faz uma requisição para o servlet Java
+            fetch('/teste')
+                .then(response => response.json())
+                .then(data => {
+                    // Exibe a resposta do Java na página
+                    textoResposta.innerHTML = `
+                        <strong>Resposta do Java:</strong><br>
+                        📨 Mensagem: ${data.mensagem}<br>
+                        🔢 Número: ${data.numero}<br>
+                        ⏰ Timestamp: ${new Date(data.timestamp).toLocaleTimeString('pt-BR')}
+                    `;
+                    divResposta.style.display = 'block';
+                    botaoTeste.textContent = 'Clique para chamar o Java';
+                    botaoTeste.disabled = false;
+                })
+                .catch(error => {
+                    textoResposta.innerHTML = `<span style="color: red;"> ❌ Erro ao conectar com o Java: ${error.message} </span>`;
+                    divResposta.style.display = 'block';
+                    botaoTeste.textContent = 'Clique para chamar o Java';
+                    botaoTeste.disabled = false;
+                });
+        });
+    </script>
+    
+</body>
+</html>

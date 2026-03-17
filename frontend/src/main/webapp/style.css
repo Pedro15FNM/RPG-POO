@@ -1,0 +1,403 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fontes */
+.modern-antiqua-regular {
+  font-family: "Modern Antiqua", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Body */
+body {
+    font-family: 'Arial', sans-serif; 
+    background: linear-gradient(135deg, #3d1a0f 0%, #2d1410 50%, #1a0f0a 100%);
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+/* background específico da home */
+.container-home {
+    background-image: url('imagens-de-fundo/taverna-background.gif');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Home */
+.container{
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.title{
+    font-size: 5rem;
+    font-family: "Modern Antiqua";
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 
+                 0 0 20px rgba(212, 165, 116, 0.5);
+    margin-bottom: 4rem;
+    letter-spacing: 2px;
+    animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 
+                     0 0 20px rgba(212, 165, 116, 0.5);
+    }
+    50% {
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 
+                     0 0 30px rgba(212, 165, 116, 0.8);
+    }
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: flex-start;
+    max-width: 500px;
+    margin: 0 0 0 100px;
+}
+
+.btn {
+    background: linear-gradient(135deg, #e8d9b8 0%, #d4c4a0 100%);
+    border: 4px solid #A47B39;
+    border-radius: 8px;
+    padding: 25px 60px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2d1410;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5), 
+                inset 0 2px 0 rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    width: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(212, 165, 116, 0.6), 
+                inset 0 2px 0 rgba(255, 255, 255, 0.5);
+    background: linear-gradient(135deg, #f0e4c3 0%, #DEBB83 100%);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5), 
+                inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-create {
+    background: linear-gradient(135deg, #DEBB83 0%, #DEBB83 100%);
+}
+
+.btn-view {
+    background: linear-gradient(135deg, #DEBB83 0%, #DEBB83 100%);
+}
+
+.btn-combat {
+    background: linear-gradient(135deg, #DEBB83 0%, #DEBB83 100%);
+}
+
+.btn-credits {
+    background: linear-gradient(135deg, #DEBB83 0%, #DEBB83 100%);
+}
+
+/* Página de criação */
+.container-criacao{
+    background-image: url(./imagens-de-fundo/fogueira-background.gif);
+    background-position: bottom;
+    background-size: initial;
+    background-repeat: no-repeat;
+    background-color: #181425;
+}
+
+.title-criacao{
+    font-family: "Modern Antiqua";
+    font-size: 25px;
+    position: relative;
+    bottom: 90px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 
+         0 0 20px rgba(212, 165, 116, 0.5);
+    letter-spacing: 2px;
+    animation: glow 3s ease-in-out infinite;
+}
+
+.character-selection {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.subtitle {
+    font-size: 2.5rem;
+    font-family: "Modern Antiqua", serif;
+    color: #342c4d;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 3rem;
+    letter-spacing: 1px;
+}
+
+.classes-grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.class-card {
+    position: relative;
+    border-radius: 18px;
+    padding: 1.8rem 1.5rem;
+    width: 260px;
+    min-height: 100px;
+    text-align: center;
+    transition: transform 0.5s ease, opacity 0.25s ease;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.class-card p {
+    color: #e8d9b8;
+}
+
+.class-card h3 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 0.6rem;
+    transition: font-size 0.2s ease;
+}
+
+.class-card.dimmed h3 {
+    font-size: 1.6rem;
+}
+
+.class-cta {
+    font-size: 0.9rem;
+    color: rgba(232, 217, 184, 0.9);
+    margin-bottom: 1.2rem;
+}
+
+.class-details {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.25s ease, max-height 0.35s ease;
+}
+
+.class-card.active {
+    transform: scale(1.05);
+    border-color: #d4a574;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    flex-direction: row;
+    align-items: flex-start;
+    width: 420px;
+}
+
+.class-card.active .class-details {
+    opacity: 1;
+    max-height: 600px;
+    margin-left: 1.5rem;
+    text-align: left;
+}
+
+.class-card.active h3 {
+    align-self: center;
+}
+
+.class-card.dimmed {
+    transform: scale(0.9);
+    opacity: 0.35;
+}
+
+.subclasses {
+    margin-top: 1.2rem;
+    text-align: left;
+}
+
+.subclass h4 {
+    color: #d4a574;
+    margin-bottom: 0.2rem;
+}
+
+.subclass p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #e8d9b8;
+    margin-bottom: 0.8rem;
+}
+
+.class-hint {
+    font-size: 1rem;
+    color: rgba(232, 217, 184, 0.85);
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 800px) {
+    .classes-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .class-card {
+        width: 90%;
+    }
+
+    .class-card.active {
+        width: 90%;
+    }
+}
+
+.escolhas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+    margin-bottom: 3rem;
+}
+
+.classe-option {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.8rem;
+    color: #ffffff;
+    cursor: pointer;
+    padding-bottom: 10px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.classe-option:hover {
+    border-bottom: 3px solid #e8d9b8;
+    color: #e8d9b8;
+    transform: scale(1.05);
+    text-shadow: 0 0 10px rgba(232, 217, 184, 0.5);
+}
+
+/* Página de personagens */
+.characters-list {
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.character-card {
+    background: rgba(212, 165, 116, 0.1);
+    border: 2px solid #8b6f47;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    color: #e8d9b8;
+}
+
+.character-card h3 {
+    color: #d4a574;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.character-card p {
+    margin: 0.3rem 0;
+}
+
+/* Página de créditos */
+.creditos{
+    background-image: url(./imagens-de-fundo/creditos-background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.credits-content {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: rgba(212, 165, 116, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 2px solid #8b6f47;
+    color: #e8d9b8;
+    text-align: left;
+}
+
+.credits-content h2 {
+    color: #d4a574;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.credits-content p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Página de combate */
+.combat-page {
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.combat-title {
+    font-size: 3rem;
+    color: #d4a574;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.back-btn {
+    background: linear-gradient(135deg, #e8d9b8 0%, #d4c4a0 100%);
+    border: 4px solid #8b6f47;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #2d1410;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 2rem;
+}
+
+.back-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(212, 165, 116, 0.6);
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .btn {
+        font-size: 1.4rem;
+        padding: 20px 40px;
+    }
+
+    .menu {
+        gap: 15px;
+    }
+}
