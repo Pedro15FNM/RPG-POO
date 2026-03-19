@@ -107,6 +107,8 @@ class ListaHabilidades {
     int dano = 0;
     int dado;
 
+    Scanner sc = new Scanner(System.in);
+
     public ListaHabilidades(Personagem personagem, Personagem oponente) {
         this.personagem = personagem;
         this.oponente = oponente;
@@ -205,23 +207,68 @@ class ListaHabilidades {
 
         public class Necromancia { // Necromante
             
-            public void invocarZumbi() {
+            public void Ergase() {
                 System.out.println("💀 Um zumbi foi invocado!");
 
                 Zumbi zumbi = new Zumbi();
                 List<Zumbi> zumbis = new ArrayList<>();
 
-                int limite = 0;
+                int limite;
+                int escolha;
+
+                if (zumbis.lenght == 0) {
+
+                    System.out.println("Invocando Zumbi!!!");
                 
-                if (limite < 4) {
+                    zumbis.add(aumbi);
 
-                    zumbis.add(zumbi);
+                    personagem.vida += zumbis.get(limite).vida;
                     
-                    personagem.vida += 4;
-
                     System.out.println("Zumbi " + limite + "° invocado!!!");
+
+                    limite++;
+
                 } else {
-                    System.out.println("Limite de zumbi atingido!!!");
+
+                    System.out.println("Gostaria de: \n" + 
+                        "1 = Invocar Zumbi!!!\n" +
+                        "2 = Atacar com Zumbi!!!"
+                    );
+
+                    escolha = sc.nextInt();
+
+                    if ((limite < zumbis.length) && (escolha == 1)) {
+                    
+                        zumbis.add(aumbi);
+
+                        personagem.vida += zumbis.get(limite).vida;
+                    
+                        System.out.println("Zumbi " + limite + "° invocado!!!");
+
+                        limite++;
+                    
+                    } else if (limite == zumbis.lenght) {
+
+                        System.out.println("Limite de zumbi atingido!!!");
+                    
+                    } else { // Realizar ação de atacar do zumbi
+
+                        dado = dadoClass.rolarDado("Neutro");
+
+                        if (dado > oponente.cd) {
+                            
+                            dano = (int) (Math.random() * zumbi.dadoDano) + 1;
+
+                            oponente.vida -= dano;
+
+                            System.out.println("Zumbi acertou o oponente!!!\n" +
+                                    "Zumbi jogou " + dado + "\n" +
+                                    "Zumbi causou " + dano + " de dano no oponente!!!\n\n" +
+                                    "Vida atual do oponente: " + oponente.vida);
+                            
+                        }
+
+                    }
                 }
 
                

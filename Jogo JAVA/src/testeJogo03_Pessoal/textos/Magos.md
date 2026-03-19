@@ -1,6 +1,6 @@
 # 🧙‍♂️ Magos
 
-Neste arquivo `README.md` será explicado o funcionamento da classe **Mago**, suas subcategorias, atributos base, habilidades e funcionamento geral dentro do combate.
+Neste arquivo `README.md` será explicado o funcionamento da classe **Mago**, seus arquetipos, atributos base, habilidades e funcionamento geral dentro do combate.
 
 ---
 
@@ -8,12 +8,14 @@ Neste arquivo `README.md` será explicado o funcionamento da classe **Mago**, su
 
 Todos os magos, independentemente de sua especialização, começam com os seguintes atributos padrão.
 
-| ⚔️ **Atributo**  | **Valor** |
-|------------------|-----------|
-| ❤️ HP  ███       | 30        |
-| 🔮 PE  ██████████ | 30        |
-| 🎯 CD  ██████    | 10        |
-| ⚖️ Vantagem Inicial | `Neutro` |
+| ⚔️ **Atributo**     | **Valor** |
+|---------------------|-----------|
+| ❤️ HP  ██████       | 60        |
+| 🔮 PE  ██████████   | 30        |
+| 🎯 CD  █████        | 10        |
+| ⚖️ Vantagem Inicial | `Neutro`  |
+
+---
 
 ## 🔹 Métodos
 
@@ -42,6 +44,13 @@ No sentido mais literal da palavra, trata-se de **uma bola de fogo lançada pelo
 - **Custo:** 4 PE
 - **Dano:** 3d6
 
+Uso para reutilização no código
+
+
+``` 
+// 🔥 Bola de Fogo (Custo: 4 | Dano: 3d6 | Efeito: Nenhum | Critério: Nenhum )
+```
+
 ---
 
 ## 🔥 Círculo de Incineração
@@ -54,6 +63,11 @@ O mago é envolvido por **chamas ardentes que circulam seu corpo**, formando uma
 - **Dano:** 1d6
 - **Observação:** Só funciona quando o inimigo realiza um ataque corpo a corpo contra o mago.
 
+
+``` 
+// 🔥 Cículo de Incineração (Custo: 8 | Dano: 1d6 | Efeito: Nenhum | Critério: Só funciona ao toque do oponente )
+```
+
 ---
 
 ## 🔥 Ultimate: Fênix
@@ -64,6 +78,18 @@ O mago invoca das forças elementais **uma fênix alada**, símbolo da persevera
 
 - **Custo:** 10 PE
 - **Dano:** 8d6
+
+``` 
+// 🔥 Fênix (Custo: 10 | Dano: 8d6 | Efeito: Nenhum | Critério: Nenhum )
+```
+
+---
+
+## 🔥 Habilidade (1)
+
+---
+
+## 🔥 Habilidade (2)
 
 ---
 
@@ -79,6 +105,10 @@ Você cria uma mão esquelética fantasmagórica no espaço de uma criatura, den
 - **Custo:**  8 PE
 - **Dano:** 1d8
 - **Cura:** 1d8
+
+``` 
+//  🧟 Putrefação (Custo: 8 | Dano: 1d8 | Efeito: Vida + 1d8 (roubado do oponente) | Critério: Toque deve ser realizado )
+```
 
 ---
 
@@ -97,6 +127,23 @@ Essa magia cria um servo morto-vivo. Sua magia imbui o alvo com uma imitação c
 | ⚖️ Vantagem Inicial | `Neutro`  |
 | 🚧 Limite         | 4         |
 
+``` 
+//  🧟 Ergase (Custo: 8 | Dano: Nenhum | Efeito: Invoca Zumbi aliado | Critério: Necromante só pode ter 4 zumbis )
+
+/*
+
+Class Name: Zumbi
+
+vida = 4
+PE = 0
+CD = 8
+
+Vantamge = Neutro
+
+*/
+
+```
+
 ---
 
 ## 🧟 Condenado
@@ -105,6 +152,19 @@ Você profere uma palavra de poder que pode compelir uma criatura que você poss
 **Efeitos**
 - **Custo:** 10 PE
 - **Dano:** 3d10
+
+
+``` 
+//  🧟 Condenado (Custo: 10 | Dano: 3d10 | Efeito: Nenhum | Critério: Nenhum )
+```
+
+---
+
+## 🧟 Habilidade (1)
+
+---
+
+## 🧟 Habilidade (2)
 
 ---
 
@@ -121,6 +181,10 @@ O usuário ao apontar o seu cajado para o céu, aglutinan-se uma quantidade de n
 - **Custo:** 2 PE
 - **Condição:** `Desvantagem`
 
+``` 
+//  ❄️ Tempestade de gelo (Custo: 2 | Dano: Nenhum | Efeito: Aplicar Desvantagem no Oponente | Critério: Nenhum )
+```
+
 ---
 
 ## ❄️ Prisão glacial
@@ -129,3 +193,28 @@ Ao conjurar a magia, uma aura de frio absoluto irrompe de seus dedos. O ar ao re
 **Efeito:**
 - **Custo:** 4 PE
 - **Condição:** `Paralizado`
+
+``` 
+//  ❄️ Prisão Glacial (Custo: 4 | Dano: Nenhum | Efeito: Aplicar "Paralizado" no oponente (oponente perde o próximo turno) | Critério: Nenhum )
+```
+
+---
+
+## ❄️ Ice Age
+
+{Insira texto}
+
+
+``` 
+//  ❄️ Ice Age (Custo: 10 | Dano: 4d8 | Efeito: null | Critério: null )
+```
+
+---
+
+## ❄️ Habilidade (1)
+
+---
+
+## ❄️ Habilidade (2)
+
+---
