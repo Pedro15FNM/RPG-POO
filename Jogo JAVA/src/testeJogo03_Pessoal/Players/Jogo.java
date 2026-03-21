@@ -1,19 +1,23 @@
 package testeJogo03_Pessoal.Players;
 
 import java.util.Scanner;
+import testeJogo03_Pessoal.Players.Classes.*;
 
 public class Jogo {
 
     public static void main(String[] args) {
 
         Personagem oponente = new Personagem(10, 10, 10, "Neutro");
-        Personagem player;
+        Personagem player = null;
 
-        player = new MagoFogo(oponente);
+        CriadordePersonagem criador = new CriadordePersonagem(player, oponente);
+        
+        player = criador.player;
 
         player.acao();
 
-        System.out.println("\nVida do oponente: " + oponente.vida);
+        System.out.println(" \n " + player.toString());
+        
 
     }
 

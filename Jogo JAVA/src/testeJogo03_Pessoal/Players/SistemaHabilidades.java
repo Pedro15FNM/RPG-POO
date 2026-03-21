@@ -1,5 +1,7 @@
 package testeJogo03_Pessoal.Players;
 
+import testeJogo03_Pessoal.Players.Classes.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -7,7 +9,7 @@ import java.util.Scanner;
 public class SistemaHabilidades {
 
     List<Habilidade> habilidadesDisponiveis = new ArrayList<>();
-    List<Habilidade> habilidadesEscolhidas = new ArrayList<>();
+    public List<Habilidade> habilidadesEscolhidas = new ArrayList<>();
 
 
     Scanner sc = new Scanner(System.in);
@@ -22,52 +24,93 @@ public class SistemaHabilidades {
 
             ListaHabilidades.Mago mago = lista.new Mago();
 
-            if (personagem instanceof MagoFogo) {
+            if (personagem instanceof Mago.MagoFogo) {
 
                 ListaHabilidades.Mago.Fogo fogo = mago.new Fogo();
 
                 habilidadesDisponiveis.add(new Habilidade("Bola de Fogo", () -> fogo.bolaDeFogo()));
-                habilidadesDisponiveis.add(new Habilidade("Habilidade 2", () -> fogo.habilidade2(personagem)));
-                habilidadesDisponiveis.add(new Habilidade("Habilidade 3", () -> fogo.habilidade3(personagem)));
-                habilidadesDisponiveis.add(new Habilidade("Habilidade 4", () -> fogo.habilidade4(personagem)));
-                habilidadesDisponiveis.add(new Habilidade("Habilidade 5", () -> fogo.habilidade5(personagem)));
+                habilidadesDisponiveis.add(new Habilidade("Habilidade 2", () -> fogo.habilidade2()));
+                habilidadesDisponiveis.add(new Habilidade("Habilidade 3", () -> fogo.habilidade3()));
+                habilidadesDisponiveis.add(new Habilidade("Habilidade 4", () -> fogo.habilidade4()));
+                habilidadesDisponiveis.add(new Habilidade("Habilidade 5", () -> fogo.habilidade5()));
 
-                escolherHabilidades(mago);
+                escolherHabilidades();
 
             }
-            else if (personagem instanceof  Necromante) {
+            else if (personagem instanceof Mago.Necromante) {
 
                 ListaHabilidades.Mago.Necromancia necro = mago.new Necromancia();
 
-                habilidadesDisponiveis.add(new Habilidade("Bola de Fogo", () -> necro.invocarZumbi()));
+                habilidadesDisponiveis.add(new Habilidade("Invocar Zumbi", () -> necro.invocarZumbi()));
                 habilidadesDisponiveis.add(new Habilidade("Habilidade 2", () -> necro.habilidade2()));
                 habilidadesDisponiveis.add(new Habilidade("Habilidade 3", () -> necro.habilidade3()));
                 habilidadesDisponiveis.add(new Habilidade("Habilidade 4", () -> necro.habilidade4()));
                 habilidadesDisponiveis.add(new Habilidade("Habilidade 5", () -> necro.habilidade5()));
 
-                escolherHabilidades(mago);
+                escolherHabilidades();
 
             }
-            else if (personagem instanceof MagoGelo) {
+            else if (personagem instanceof Mago.MagoGelo) {
 
                 ListaHabilidades.Mago.Gelo gelo = mago.new Gelo();
 
-                habilidadesDisponiveis.add(new Habilidade("Bola de Fogo", () -> gelo.tempestadeDeGelo(personagem, oponente)));
+                habilidadesDisponiveis.add(new Habilidade("Tempestade de Gelo", () -> gelo.tempestadeDeGelo(personagem, oponente)));
                 habilidadesDisponiveis.add(new Habilidade("Habilidade 2", () -> gelo.habilidade2()));
                 habilidadesDisponiveis.add(new Habilidade("Habilidade 3", () -> gelo.habilidade3()));
                 habilidadesDisponiveis.add(new Habilidade("Habilidade 4", () -> gelo.habilidade4()));
                 habilidadesDisponiveis.add(new Habilidade("Habilidade 5", () -> gelo.habilidade5()));
 
-                escolherHabilidades(mago);
+                escolherHabilidades();
 
             }
 
-        }
+        } 
+        else if (personagem instanceof Cacador) {
 
+            ListaHabilidades.Cacador cacador = lista.new Cacador();
+
+            if (personagem instanceof Cacador.Arqueiro ) {
+
+                ListaHabilidades.Cacador.Arqueiro arqueiro = cacador.new Arqueiro();
+
+                habilidadesDisponiveis.add(new Habilidade("Habilidade 1", () -> arqueiro.Habilidade_1()));
+                habilidadesDisponiveis.add(new Habilidade("Habilidade 2", () -> arqueiro.Habilidade_2()));
+                habilidadesDisponiveis.add(new Habilidade("Habilidade 3", () -> arqueiro.Habilidade_3()));
+                habilidadesDisponiveis.add(new Habilidade("Habilidade 4", () -> arqueiro.Habilidade_4()));
+                habilidadesDisponiveis.add(new Habilidade("Habilidade 5", () -> arqueiro.Habilidade_5()));
+                habilidadesDisponiveis.add(new Habilidade("Habilidade 6", () -> arqueiro.Habilidade_6()));
+            }
+            else if (personagem instanceof Cacador.Pistoleiro) {
+                
+                ListaHabilidades.Cacador.Pistoleiro pistoleiro = cacador.new Pistoleiro();
+
+                habilidadesDisponiveis.add(new Habilidade("Habilidade 1", () -> pistoleiro.Habilidade_1()));
+                habilidadesDisponiveis.add(new Habilidade("Habilidade 2", () -> pistoleiro.Habilidade_2()));
+                habilidadesDisponiveis.add(new Habilidade("Habilidade 3", () -> pistoleiro.Habilidade_3()));
+                habilidadesDisponiveis.add(new Habilidade("Habilidade 4", () -> pistoleiro.Habilidade_4()));
+                habilidadesDisponiveis.add(new Habilidade("Habilidade 5", () -> pistoleiro.Habilidade_5()));
+                habilidadesDisponiveis.add(new Habilidade("Habilidade 6", () -> pistoleiro.Habilidade_6()));
+
+            }
+        }
+        else if (personagem instanceof Barbaro) {
+
+            ListaHabilidades.Barbaro barbaro = lista.new Barbaro();
+
+            habilidadesDisponiveis.add(new Habilidade("Habilidade 1", () -> barbaro.Habilidade_1()));
+            habilidadesDisponiveis.add(new Habilidade("Habilidade 2", () -> barbaro.Habilidade_2()));
+            habilidadesDisponiveis.add(new Habilidade("Habilidade 3", () -> barbaro.Habilidade_3()));
+            habilidadesDisponiveis.add(new Habilidade("Habilidade 4", () -> barbaro.Habilidade_4()));
+            habilidadesDisponiveis.add(new Habilidade("Habilidade 5", () -> barbaro.Habilidade_5()));
+            habilidadesDisponiveis.add(new Habilidade("Habilidade 6", () -> barbaro.Habilidade_6()));
+
+            escolherHabilidades();
+
+        }
     }
 
-    public void escolherHabilidades(ListaHabilidades.Mago mago) {
-
+    public void escolherHabilidades() {
+        
         System.out.println("Escolha 3 habilidades:\n");
 
         for (int i = 0; i < habilidadesDisponiveis.size(); i++) {
@@ -114,7 +157,7 @@ class ListaHabilidades {
         this.oponente = oponente;
 
         dadoClass = new Dado();
-        this.dado = dadoClass.rolarDado(this.personagem.vantagem);
+        this.dado = dadoClass.rolarDado(this.personagem.getVantagem());
     }
 
     public class Mago {
@@ -154,25 +197,25 @@ class ListaHabilidades {
 
             }
 
-            void habilidade2(Personagem player){
+            void habilidade2(){
                 String nome = "habilidade";
             }
-            void habilidade3(Personagem player){
+            void habilidade3(){
                 String nome = "habilidade";
             }
-            void  habilidade4(Personagem player){
+            void  habilidade4(){
                 String nome = "habilidade";
             }
-            void habilidade5(Personagem player){
+            void habilidade5(){
                 String nome = "habilidade";
             }
         }
 
         public class Gelo { // Mago de gelo
 
-            public void tempestadeDeGelo(Personagem player,  Personagem oponente) {
+            public void tempestadeDeGelo(Personagem player, Personagem oponente) {
 
-                int dado = dadoClass.rolarDado(player.vantagem);
+                int dado = dadoClass.rolarDado(player.getVantagem());
 
                 if (dado >  oponente.cd) {
 
@@ -207,26 +250,26 @@ class ListaHabilidades {
 
         public class Necromancia { // Necromante
             
-            public void Ergase() {
+            public void invocarZumbi() {
                 System.out.println("💀 Um zumbi foi invocado!");
 
                 Zumbi zumbi = new Zumbi();
                 List<Zumbi> zumbis = new ArrayList<>();
 
-                int limite;
+                int limite = 0;
                 int escolha;
 
-                if (zumbis.lenght == 0) {
+                if (zumbis.size() == 0) {
 
                     System.out.println("Invocando Zumbi!!!");
                 
-                    zumbis.add(aumbi);
+                    zumbis.add(zumbi);
 
-                    personagem.vida += zumbis.get(limite).vida;
+                    personagem.vida += zumbis.get(0).vida;
                     
-                    System.out.println("Zumbi " + limite + "° invocado!!!");
+                    System.out.println("Zumbi 1° invocado!!!");
 
-                    limite++;
+                    limite = 1;
 
                 } else {
 
@@ -237,17 +280,17 @@ class ListaHabilidades {
 
                     escolha = sc.nextInt();
 
-                    if ((limite < zumbis.length) && (escolha == 1)) {
+                    if ((limite < 5) && (escolha == 1)) {
                     
-                        zumbis.add(aumbi);
+                        zumbis.add(zumbi);
 
                         personagem.vida += zumbis.get(limite).vida;
                     
-                        System.out.println("Zumbi " + limite + "° invocado!!!");
+                        System.out.println("Zumbi " + (limite + 1) + "° invocado!!!");
 
                         limite++;
                     
-                    } else if (limite == zumbis.lenght) {
+                    } else if (limite == 5) {
 
                         System.out.println("Limite de zumbi atingido!!!");
                     
@@ -257,7 +300,7 @@ class ListaHabilidades {
 
                         if (dado > oponente.cd) {
                             
-                            dano = (int) (Math.random() * zumbi.dadoDano) + 1;
+                            dano = (int) (Math.random() * 6) + 1; // assumindo d6
 
                             oponente.vida -= dano;
 
@@ -274,6 +317,15 @@ class ListaHabilidades {
                
                 
             }
+            class Zumbi {
+
+                int vida = 4;
+                int cd = 8;
+
+                int dadoDano = 4;
+
+            }
+
             void habilidade2(){
                 System.out.println("Habilidade 2");
             }
@@ -287,24 +339,91 @@ class ListaHabilidades {
                 System.out.println("Habilidade 5");
             }
 
-            class Zumbi {
+        }
 
-                int vida = 4;
-                int cd = 8;
+    }
 
-                int dadoDano = 4;
+    public class Barbaro {
 
+        void Habilidade_1() {
+            System.out.println("Habilidade (1)");
+        }
+        
+        void Habilidade_2() {
+            System.out.println("Habilidade (2)");
+        }
+        
+        void Habilidade_3() {
+            System.out.println("Habilidade (3)");
+        }
+
+        void Habilidade_4() {
+            System.out.println("Habilidade (4)");
+        }
+
+        void Habilidade_5() {
+            System.out.println("Habilidade (5)");
+        }
+
+        void Habilidade_6() {
+            System.out.println("Habilidade (6)");
+        }
+
+    }
+
+    public class Cacador {
+        public class Arqueiro {
+            void Habilidade_1() {
+                System.out.println("Habilidade (1)");
             }
-
+            void Habilidade_2() {
+                System.out.println("Habilidade (2)");
+            }
+            void Habilidade_3() {
+                System.out.println("Habilidade (3)");
+            }
+            void Habilidade_4() {
+                System.out.println("Habilidade (4)");
+            }
+            void Habilidade_5() {
+                System.out.println("Habilidade (5)");
+            }
+            void Habilidade_6() {
+                System.out.println("Habilidade (6)");
+            }
+        }
+        public class Pistoleiro {
+            void Habilidade_1() {
+                System.out.println("Habilidade (1)");
+            }
+            void Habilidade_2() {
+                System.out.println("Habilidade (2)");
+            }
+            void Habilidade_3() {
+                System.out.println("Habilidade (3)");
+            }
+            void Habilidade_4() {
+                System.out.println("Habilidade (4)");
+            }
+            void Habilidade_5() {
+                System.out.println("Habilidade (5)");
+            }
+            void Habilidade_6() {
+                System.out.println("Habilidade (6)");
+            }
         }
     }
 
 }
 
+/*
+* Habilidades ==================================================================================
+* */
+
 class Habilidade {
 
-    String nome;      // O atributo que você quer printar
-    Runnable acao;    // O código que você quer salvar
+    String nome;   
+    Runnable acao;   
 
     public Habilidade(String nome, Runnable acao) {
         this.nome = nome;
@@ -313,7 +432,7 @@ class Habilidade {
 
     @Override
     public String toString() {
-        return this.nome; // Isso faz o System.out.println funcionar!
+        return this.nome; 
     }
 
 }

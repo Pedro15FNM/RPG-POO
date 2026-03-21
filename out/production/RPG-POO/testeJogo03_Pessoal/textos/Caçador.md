@@ -22,7 +22,6 @@ Todos os magos, independentemente de sua especialização, começam com os segui
 {Insira Texto}
 
 - **💣 Munição:** 30;
-- - **Habilidae padrão:** `Recarregar`
 
 ---
 
@@ -56,21 +55,11 @@ Todos os magos, independentemente de sua especialização, começam com os segui
 
 ---
 
+
+
 ## 🔫 Pistoleiro
 
 {Insira texto}
 
-- **💣 Munição:** 6
-- **Habilidae padrão:** `Recarregar`
-
 ---
 
-### 🔫 Habilidade (1)
-
-{Insira texto}
-
-````
-// 🔫 Marca do caçador (Custo: null | Dano: null | Efeito: null | Critério: null) 
-````
-
----
