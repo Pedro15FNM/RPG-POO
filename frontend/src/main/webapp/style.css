@@ -329,11 +329,65 @@ body {
     background-repeat: no-repeat;
 }
 
+.wanted-section {
+    width: 900px;
+    margin: 2rem auto 1rem auto;
+    text-align: center;
+}
+
+.wanted-section h3 {
+    color: #d4a574;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+.wanted-section a{
+    color: #911c25;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.wanted-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.wanted-poster {
+    background-image: url(https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3B4MTA1NzQwNC1pbWFnZS1qb2I2MzAtYV8xLmpwZw.jpg);
+    border: 3px solid #8b6f47;
+    border-radius: 10px;
+    width: 240px;
+    padding: 0.8rem;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.35);
+}
+
+.wanted-poster h4 {
+    font-size: 1.3rem;
+    color: #2d1410;
+    margin: 0.4rem 0;
+}
+
+.wanted-poster .bounty {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #911c25;
+    margin-top: 0.15rem;
+    letter-spacing: 1px;
+}
+
+.wanted-poster img{
+    width: 180px;
+    height: 160px;
+}
+
 .credits-content {
-    max-width: 600px;
+    max-width: 900px;
     margin: 2rem auto;
     background: rgba(212, 165, 116, 0.1);
-    padding: 2rem;
+    padding: 0rem;
     border-radius: 10px;
     border: 2px solid #8b6f47;
     color: #e8d9b8;
@@ -348,23 +402,12 @@ body {
 }
 
 .credits-content p {
+    margin-left: 10px;
     margin-bottom: 1rem;
     line-height: 1.6;
 }
 
-/* Página de combate */
-.combat-page {
-    max-width: 800px;
-    margin: 2rem auto;
-    text-align: center;
-}
-
-.combat-title {
-    font-size: 3rem;
-    color: #d4a574;
-    margin-bottom: 2rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-}
+/* Botões de volta ao Menu */
 
 .back-btn {
     background: linear-gradient(135deg, #e8d9b8 0%, #d4c4a0 100%);
@@ -385,6 +428,8 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 8px 15px rgba(212, 165, 116, 0.6);
 }
+
+/* Responsividade */
 
 @media (max-width: 768px) {
     .title {
