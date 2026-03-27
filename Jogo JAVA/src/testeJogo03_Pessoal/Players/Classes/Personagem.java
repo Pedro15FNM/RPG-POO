@@ -7,49 +7,50 @@ import java.util.Scanner;
 
 public class Personagem {
 
-    Scanner sc = new Scanner(System.in);
+  Scanner sc = new Scanner(System.in);
 
-    public int vida;
-    public int cd;
-    protected int pe;
+  public int vida;
+  public int ca;
+  protected int pe;
 
-    SistemaHabilidades habilidades;
+  SistemaHabilidades habilidades;
 
-    public String vantagem;
+  public String vantagem;
 
-    public Personagem(int vida, int cd, int pe, String vantagem) {
-        this.vida = vida;
-        this.cd = cd;
-        this.pe = pe;
-        this.vantagem = vantagem;
-    }
+  public Personagem(int vida, int ca, int pe, String vantagem) {
+    this.vida = vida;
+    this.ca = ca;
+    this.pe = pe;
+    this.vantagem = vantagem;
+  }
 
-    protected int Escolha(){
-        return Integer.parseInt(JOptionPane.showInputDialog("Realize a sua escolha: "));
-    }
+  protected int Escolha() {
+    return Integer.parseInt(JOptionPane.showInputDialog("Realize a sua escolha: "));
+  }
 
-    protected void Recuperacao() {
-        pe += 4;
-    }
+  protected void Recuperacao() {
+    pe += 4;
+  }
 
-    public void acao(){}
+  public void acao() {
+  }
 
-    public String getVantagem() {
-        return vantagem;
-    }
+  public String getVantagem() {
+    return vantagem;
+  }
 
-    public void setHabilidades(SistemaHabilidades habilidades) {
-        this.habilidades = habilidades;
-    }
+  public void setHabilidades(SistemaHabilidades habilidades) {
+    this.habilidades = habilidades;
+  }
 
-    @Override
-    public String toString() {
-        return "Personagem{" +
-                "vida=" + vida +
-                ", cd=" + cd +
-                ", pe=" + pe +
-                ", vantagem='" + vantagem + '\'' +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "Personagem{" +
+        "vida=" + vida +
+        ", ca=" + ca +
+        ", pe=" + pe +
+        ", vantagem='" + vantagem + '\'' +
+        '}';
+  }
 
 }

@@ -1,154 +1,353 @@
-# Criador de personagem
-A forma de criar o personagem será dada de um jeito um tanto quanto diferente. O grupo se baseou no estilo de criação de personagem do jogo "Fear and Hunger". No jogo "Fear and Hunger" o jogador após escolher a sua classe, passa por uma serie de perguntas feitas pelo próprio jogo, onde cada pergunta retêm de duas possíveis resposta, o jogo se utiliza das resposta do jogador para definir praticamente tudo do personagem no inicio do jogador, como: seus atributos, equipamentos, poderes e etc.
+# Criador de Personagem — Estilo Fear & Hunger
+
+A criação do personagem é inspirada no estilo de *Fear and Hunger*: após escolher sua classe/arquétipo, o jogador passa por uma série de perguntas com exatamente **2 opções cada**. As respostas definem atributos, habilidades padrão e equipamentos iniciais.
 
 ---
 
-### Textos de Atributos:
-
-É aonde o player decidira os seus atributos com base em suas escolhas.
-
----
-
-## Texto Atributos (1)
-
-Insira texto para cada Arquétipo:
-
-- **Bárbaro:**
-    {Insira Texto}
-
-- **Caçador:**
-  - **Arqueiro:**
-  {Insira texto}
-    
-  - **Pistoleiro:**
-  {Insira texto}
-
-- **Mago:**
-  - **Mago de Fogo:**
-    {Insira texto}
-
-  - **Necromante:**
-  {Insira texto}
-
-  - **Mago de Gelo:**
-  {Insira texto}
-
-
-
-**Escolha (1):**
-  - Consequência.
-
-**Escolha (2):**
-  - Consequência.
+> **Legenda:**
+> - 🔢 **Textos de Atributos** — modificam os atributos do personagem (vida, CA, PE, vantagem...)
+> - ⚔️ **Textos de Habilidades** — definem as habilidades padrão (fora as 3 escolhidas pelo sistema)
+> - `{Insira texto}` — narrativa/pergunta a ser escrita
+> - `{Consequência}` — efeito mecânico a ser decidido
 
 ---
 
-## Texto Atributos (2)
+---
 
-Insira texto para cada Arquétipo:
-
-- **Bárbaro:**
-    {Insira Texto}
-
-- **Caçador:**
-  - **Arqueiro:**
-  {Insira texto}
-    
-  - **Pistoleiro:**
-  {Insira texto}
-
-- **Mago:**
-  - **Mago de Fogo:**
-    {Insira texto}
-
-  - **Necromante:**
-  {Insira texto}
-
-  - **Mago de Gelo:**
-  {Insira texto}
+# 🔢 TEXTOS DE ATRIBUTOS
 
 ---
 
-### Textos de Habilidades:
+## Atributos — Pergunta 1
 
-É onde o player decidira suas habilidades padrão de acordo com suas escolhas
-
----
-
-## Texto Habilidades (1)
-
-Insira texto para cada Arquétipo:
-
-- **Bárbaro:**
-    {Insira Texto}
-
-- **Caçador:**
-  - **Arqueiro:**
-  {Insira texto}
-    
-  - **Pistoleiro:**
-  {Insira texto}
-
-- **Mago:**
-  - **Mago de Fogo:**
-    {Insira texto}
-
-  - **Necromante:**
-  {Insira texto}
-
-  - **Mago de Gelo:**
-  {Insira texto}
+*Cada arquétipo exibe um texto diferente, mas a estrutura é a mesma: 2 opções, 2 consequências.*
 
 ---
 
-## Texto habilidades (2)
+### Bárbaro
+> {Insira texto}
 
-Insira texto para cada Arquétipo:
-
-- **Bárbaro:**
-    {Insira Texto}
-
-- **Caçador:**
-  - **Arqueiro:**
-  {Insira texto}
-    
-  - **Pistoleiro:**
-  {Insira texto}
-
-- **Mago:**
-  - **Mago de Fogo:**
-    {Insira texto}
-
-  - **Necromante:**
-  {Insira texto}
-
-  - **Mago de Gelo:**
-  {Insira texto}
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
 
 ---
 
-## Texto Habilidades (3)
+### Caçador — Arqueiro
+> {Insira texto}
 
-Insira texto para cada Arquétipo:
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
 
-- **Bárbaro:**
-    {Insira Texto}
+---
 
-- **Caçador:**
-  - **Arqueiro:**
-  {Insira texto}
-    
-  - **Pistoleiro:**
-  {Insira texto}
+### Caçador — Pistoleiro
+> {Insira texto}
 
-- **Mago:**
-  - **Mago de Fogo:**
-    {Insira texto}
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
 
-  - **Necromante:**
-  {Insira texto}
+---
 
-  - **Mago de Gelo:**
-  {Insira texto}
+### Mago de Fogo
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Necromante
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Mago de Gelo
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+---
+
+## Atributos — Pergunta 2
+
+---
+
+### Bárbaro
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Caçador — Arqueiro
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Caçador — Pistoleiro
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Mago de Fogo
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Necromante
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Mago de Gelo
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+---
+
+# ⚔️ TEXTOS DE HABILIDADES
+
+---
+
+## Habilidades — Pergunta 1
+
+---
+
+### Bárbaro
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Caçador — Arqueiro
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Caçador — Pistoleiro
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Mago de Fogo
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Necromante
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Mago de Gelo
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+---
+
+## Habilidades — Pergunta 2
+
+---
+
+### Bárbaro
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Caçador — Arqueiro
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Caçador — Pistoleiro
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Mago de Fogo
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Necromante
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Mago de Gelo
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+---
+
+## Habilidades — Pergunta 3
+
+---
+
+### Bárbaro
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Caçador — Arqueiro
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Caçador — Pistoleiro
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Mago de Fogo
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Necromante
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
+
+---
+
+### Mago de Gelo
+> {Insira texto}
+
+- **Opção 1:** {Insira opção}
+  - Consequência: `{Consequência}`
+- **Opção 2:** {Insira opção}
+  - Consequência: `{Consequência}`
 
 ---

@@ -1,0 +1,231 @@
+@startuml Jogo RPG - Diagrama de Classes
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle Bold
+skinparam packageStyle rectangle
+
+package "testeJogo03_Pessoal.Players" {
+
+    class Jogo {
+        + {static} main(args: String[]) : void
+    }
+
+    class Dado {
+        - dado : int
+        - primeiroDado : int
+        + rolarDado(condicao: String) : int
+    }
+
+    class CriadordePersonagem {
+        - player : Personagem
+        - oponente : Personagem
+        - habilidades : SistemaHabilidades
+        - escolha : int
+        - sc : Scanner
+        + CriadordePersonagem(player: Personagem, oponente: Personagem)
+        - classeEscolha() : void
+        - Escolhas(player: Personagem) : void
+    }
+
+    class SistemaHabilidades {
+        + habilidadesDisponiveis : List<Habilidade>
+        + habilidadesEscolhidas : List<Habilidade>
+        - sc : Scanner
+        + SistemaHabilidades(personagem: Personagem, oponente: Personagem)
+        + escolherHabilidades() : void
+        + usarHabilidade(numero: int) : void
+    }
+
+    class Habilidade {
+        + nome : String
+        + acao : Runnable
+        + Habilidade(nome: String, acao: Runnable)
+        + toString() : String
+    }
+
+    class ListaHabilidades {
+        # personagem : Personagem
+        # oponente : Personagem
+        # dadoClass : Dado
+        # dano : int
+        # dado : int
+        - sc : Scanner
+        + ListaHabilidades(personagem: Personagem, oponente: Personagem)
+    }
+
+    class "ListaHabilidades.Mago" as LH_Mago {
+    }
+
+    class "ListaHabilidades.Mago.Fogo" as LH_Fogo {
+        + bolaDeFogo() : void
+        + habilidade2() : void
+        + habilidade3() : void
+        + habilidade4() : void
+        + habilidade5() : void
+    }
+
+    class "ListaHabilidades.Mago.Gelo" as LH_Gelo {
+        + tempestadeDeGelo(player: Personagem, oponente: Personagem) : void
+        + habilidade2() : void
+        + habilidade3() : void
+        + habilidade4() : void
+        + habilidade5() : void
+    }
+
+    class "ListaHabilidades.Mago.Necromancia" as LH_Necromancia {
+        + invocarZumbi() : void
+        + habilidade2() : void
+        + habilidade3() : void
+        + habilidade4() : void
+        + habilidade5() : void
+    }
+
+    class "ListaHabilidades.Mago.Necromancia.Zumbi" as Zumbi {
+        + vida : int
+        + ca : int
+        + dadoDano : int
+    }
+
+    class "ListaHabilidades.Barbaro" as LH_Barbaro {
+        + Habilidade_1() : void
+        + Habilidade_2() : void
+        + Habilidade_3() : void
+        + Habilidade_4() : void
+        + Habilidade_5() : void
+        + Habilidade_6() : void
+    }
+
+    class "ListaHabilidades.Cacador" as LH_Cacador {
+    }
+
+    class "ListaHabilidades.Cacador.Arqueiro" as LH_Arqueiro {
+        + Habilidade_1() : void
+        + Habilidade_2() : void
+        + Habilidade_3() : void
+        + Habilidade_4() : void
+        + Habilidade_5() : void
+        + Habilidade_6() : void
+    }
+
+    class "ListaHabilidades.Cacador.Pistoleiro" as LH_Pistoleiro {
+        + Habilidade_1() : void
+        + Habilidade_2() : void
+        + Habilidade_3() : void
+        + Habilidade_4() : void
+        + Habilidade_5() : void
+        + Habilidade_6() : void
+    }
+}
+
+package "testeJogo03_Pessoal.Players.Classes" {
+
+    class Personagem {
+        + vida : int
+        + ca : int
+        # pe : int
+        + vantagem : String
+        # sc : Scanner
+        # habilidades : SistemaHabilidades
+        + Personagem(vida: int, ca: int, pe: int, vantagem: String)
+        # Escolha() : int
+        # Recuperacao() : void
+        + acao() : void
+        + getVantagem() : String
+        + setHabilidades(habilidades: SistemaHabilidades) : void
+        + toString() : String
+    }
+
+    class Barbaro {
+        + Barbaro(oponente: Personagem)
+        + acao() : void
+    }
+
+    class Cacador {
+        + Cacador(oponente: Personagem)
+        + acao() : void
+    }
+
+    class "Cacador.Arqueiro" as Arqueiro {
+        - habilidades : SistemaHabilidades
+        + Arqueiro(oponente: Personagem)
+        + acao() : void
+    }
+
+    class "Cacador.Pistoleiro" as Pistoleiro {
+        - habilidades : SistemaHabilidades
+        + Pistoleiro(oponente: Personagem)
+        + acao() : void
+    }
+
+    class Mago {
+        # oponente : Personagem
+        + Mago(oponente: Personagem)
+    }
+
+    class "Mago.MagoFogo" as MagoFogo {
+        - habilidades : SistemaHabilidades
+        + MagoFogo(oponente: Personagem)
+        + acao() : void
+        + toString() : String
+    }
+
+    class "Mago.MagoGelo" as MagoGelo {
+        - habilidadesGelo : SistemaHabilidades
+        + MagoGelo(oponente: Personagem)
+        + acao() : void
+        + toString() : String
+    }
+
+    class "Mago.Necromante" as Necromante {
+        - habilidades : SistemaHabilidades
+        + Necromante(oponente: Personagem)
+        + acao() : void
+        + toString() : String
+    }
+}
+
+' ── Herança ──────────────────────────────────────────────────
+Personagem <|-- Barbaro
+Personagem <|-- Cacador
+Personagem <|-- Mago
+
+Cacador <|-- Arqueiro
+Cacador <|-- Pistoleiro
+
+Mago <|-- MagoFogo
+Mago <|-- MagoGelo
+Mago <|-- Necromante
+
+' ── Composição / Agregação ───────────────────────────────────
+Jogo ..> CriadordePersonagem : cria
+Jogo o-- Personagem : player / oponente
+
+CriadordePersonagem o-- Personagem : player / oponente
+CriadordePersonagem ..> SistemaHabilidades : cria e atribui
+
+SistemaHabilidades o-- Habilidade : habilidadesDisponiveis\nhabilidadesEscolhidas
+SistemaHabilidades ..> ListaHabilidades : usa
+
+ListaHabilidades o-- Dado : dadoClass
+ListaHabilidades +-- LH_Mago
+LH_Mago +-- LH_Fogo
+LH_Mago +-- LH_Gelo
+LH_Mago +-- LH_Necromancia
+LH_Necromancia +-- Zumbi
+ListaHabilidades +-- LH_Barbaro
+ListaHabilidades +-- LH_Cacador
+LH_Cacador +-- LH_Arqueiro
+LH_Cacador +-- LH_Pistoleiro
+
+Personagem o-- SistemaHabilidades : habilidades
+
+' ── Dependências de uso ───────────────────────────────────────
+SistemaHabilidades ..> Personagem : usa (instanceof checks)
+SistemaHabilidades ..> Mago
+SistemaHabilidades ..> MagoFogo
+SistemaHabilidades ..> MagoGelo
+SistemaHabilidades ..> Necromante
+SistemaHabilidades ..> Cacador
+SistemaHabilidades ..> Barbaro
+
+@enduml

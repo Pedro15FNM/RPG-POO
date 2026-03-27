@@ -164,7 +164,7 @@ class ListaHabilidades {
 
         ArrayList<Integer> dadoDano = new ArrayList<>();
 
-        if (dado > oponente.cd) {
+        if (dado > oponente.ca) {
 
           for (int i = 0; i < 3; i++) {
             int roll = (int) (Math.random() * 6) + 1;
@@ -213,7 +213,7 @@ class ListaHabilidades {
 
         int dado = dadoClass.rolarDado(player.getVantagem());
 
-        if (dado > oponente.cd) {
+        if (dado > oponente.ca) {
 
           oponente.vantagem = "Desvantagem";
 
@@ -294,7 +294,7 @@ class ListaHabilidades {
 
             dado = dadoClass.rolarDado("Neutro");
 
-            if (dado > oponente.cd) {
+            if (dado > oponente.ca) {
 
               dano = (int) (Math.random() * 6) + 1; // assumindo d6
 
@@ -315,7 +315,7 @@ class ListaHabilidades {
       class Zumbi {
 
         int vida = 4;
-        int cd = 8;
+        int ca = 8;
 
         int dadoDano = 4;
 

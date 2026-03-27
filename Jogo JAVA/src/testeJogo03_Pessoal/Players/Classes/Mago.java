@@ -8,102 +8,100 @@ import testeJogo03_Pessoal.Players.SistemaHabilidades;
 
 public class Mago extends Personagem {
 
-    protected Personagem oponente;
+  protected Personagem oponente;
 
-    public Mago(Personagem oponente) {
+  public Mago(Personagem oponente) {
 
-        super(30,10,30,"Neutro");
+    super(30, 10, 30, "Neutro");
 
-        this.oponente = oponente;
+    this.oponente = oponente;
+
+  }
+
+  public static class MagoFogo extends Mago {
+
+    SistemaHabilidades habilidades;
+
+    public MagoFogo(Personagem oponente) {
+      super(oponente);
+    }
+
+    public void acao() {
+
+      System.out.println("Escolha uma entre as suas Habilidades" + "\n" +
+          "1 = " + habilidades.habilidadesEscolhidas.get(0) + "\n" +
+          "2 = " + habilidades.habilidadesEscolhidas.get(1) + "\n" +
+          "3 = " + habilidades.habilidadesEscolhidas.get(2) + "\n");
+
+      int acao = sc.nextInt() - 1;
+
+      habilidades.usarHabilidade(acao);
 
     }
 
-    public static class MagoFogo extends Mago {
+    @Override
+    public String toString() {
+      return super.toString();
+    }
 
-        public MagoFogo(Personagem oponente) {
-            super(oponente);
-        }
+  }
 
-        public void acao() {
+  public static class MagoGelo extends Mago {
 
-            System.out.println( "Escolha uma entre as suas Habilidades" + "\n" +
-                    "1 = " + habilidades.habilidadesEscolhidas.get(0) + "\n" +
-                    "2 = " + habilidades.habilidadesEscolhidas.get(1) + "\n" +
-                    "3 = " + habilidades.habilidadesEscolhidas.get(2) + "\n"
-            );
+    SistemaHabilidades habilidadesGelo;
 
-            int acao = sc.nextInt() - 1;
+    public MagoGelo(Personagem oponente) {
 
-            habilidades.usarHabilidade(acao);
-
-        }
-
-        @Override
-        public String toString() {
-            return super.toString();
-        }
+      super(oponente);
 
     }
 
-    public static class MagoGelo extends Mago {
+    public void acao() {
 
-        SistemaHabilidades habilidadesGelo;
+      System.out.println("Escolha uma entre as suas Habilidades" + "\n" +
+          "1 = " + habilidadesGelo.habilidadesEscolhidas.get(0) + "\n" +
+          "2 = " + habilidadesGelo.habilidadesEscolhidas.get(1) + "\n" +
+          "3 = " + habilidadesGelo.habilidadesEscolhidas.get(2) + "\n");
 
-        public MagoGelo(Personagem oponente) {
+      int acao = sc.nextInt() - 1;
 
-            super(oponente);
-
-        }
-
-        public void acao() {
-
-            System.out.println( "Escolha uma entre as suas Habilidades" + "\n" +
-                    "1 = " + habilidadesGelo.habilidadesEscolhidas.get(0) + "\n" +
-                    "2 = " + habilidadesGelo.habilidadesEscolhidas.get(1) + "\n" +
-                    "3 = " + habilidadesGelo.habilidadesEscolhidas.get(2) + "\n"
-            );
-
-            int acao = sc.nextInt() - 1;
-
-            habilidadesGelo.usarHabilidade(acao);
-
-        }
-
-        @Override
-        public String toString() {
-            return super.toString();
-        }
+      habilidadesGelo.usarHabilidade(acao);
 
     }
 
-    public static class Necromante extends Mago {
+    @Override
+    public String toString() {
+      return super.toString();
+    }
 
-        SistemaHabilidades habilidades;
+  }
 
-        public Necromante(Personagem oponente) {
+  public static class Necromante extends Mago {
 
-            super(oponente);
+    SistemaHabilidades habilidades;
 
-        }
+    public Necromante(Personagem oponente) {
 
-        @Override
-        public void acao() {
-
-            System.out.println( "Escolha uma entre as suas Habilidades" + "\n" +
-                    "1 = " + habilidades.habilidadesEscolhidas.get(0) + "\n" +
-                    "2 = " + habilidades.habilidadesEscolhidas.get(1) + "\n" +
-                    "3 = " + habilidades.habilidadesEscolhidas.get(2) + "\n"
-            );
-
-            int acao = sc.nextInt() - 1;
-
-        }
-
-        @Override
-        public String toString() {
-            return super.toString();
-        }
+      super(oponente);
 
     }
+
+    @Override
+    public void acao() {
+
+      System.out.println("Escolha uma entre as suas Habilidades" + "\n" +
+          "1 = " + habilidades.habilidadesEscolhidas.get(0) + "\n" +
+          "2 = " + habilidades.habilidadesEscolhidas.get(1) + "\n" +
+          "3 = " + habilidades.habilidadesEscolhidas.get(2) + "\n");
+
+      int acao = sc.nextInt() - 1;
+
+    }
+
+    @Override
+    public String toString() {
+      return super.toString();
+    }
+
+  }
 }
-

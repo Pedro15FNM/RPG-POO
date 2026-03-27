@@ -2,7 +2,7 @@ Class: Pai;
 
 Atributos:
 - vida;
-- cd;
+- CA;
 - pe;
 
 Métodos:

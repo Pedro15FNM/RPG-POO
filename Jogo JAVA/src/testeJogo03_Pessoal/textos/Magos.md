@@ -1,6 +1,6 @@
 # 🧙‍♂️ Magos
 
-Neste arquivo `README.md` será explicado o funcionamento da classe **Mago**, seus arquetipos, atributos base, habilidades e funcionamento geral dentro do combate.
+Neste arquivo será explicado o funcionamento da classe **Mago**, seus arquétipos, atributos base, habilidades e funcionamento geral dentro do combate.
 
 ---
 
@@ -10,211 +10,324 @@ Todos os magos, independentemente de sua especialização, começam com os segui
 
 | ⚔️ **Atributo**     | **Valor** |
 |---------------------|-----------|
-| ❤️ HP  ██████       | 60        |
-| 🔮 PE  ██████████   | 30        |
-| 🎯 CD  █████        | 10        |
+| ❤️ HP              | 60        |
+| 🔮 PE              | 30        |
+| 🎯 CA              | 10        |
 | ⚖️ Vantagem Inicial | `Neutro`  |
 
 ---
 
-## 🔹 Métodos
+## 🔹 Regras da Classe
 
-Todos os magos possuem:
-
-- **3 habilidades individuais de combate**
+- **3 habilidades já definidas**
+- **até 6 habilidades por arquétipo**
 - **1 habilidade de recuperação**, herdada da classe `Personagem`
 
-Essas habilidades representam as técnicas mágicas dominadas pelo mago e são utilizadas durante o combate.
+As habilidades abaixo foram escolhidas para serem fáceis de aplicar no código: dano, buff, debuff, escudo, invocação e efeitos de turno.
 
 ---
 
 # 🔥 Mago de Fogo
 
-O **Mago de Fogo** é uma classe mágica focada em **dano direto**.  
-Todas as suas habilidades são voltadas para **ataques ofensivos e destruição**, utilizando o elemento fogo como fonte de poder.
+O **Mago de Fogo** é focado em dano direto e pressão constante, usando chamas para punir o inimigo.
 
 ---
 
 ## 🔥 Bola de Fogo
 
-No sentido mais literal da palavra, trata-se de **uma bola de fogo lançada pelo mago contra o inimigo**.
+Uma esfera de fogo arremessada contra o alvo.
 
 **Efeitos**
 
 - **Custo:** 4 PE
 - **Dano:** 3d6
 
-Uso para reutilização no código
-
-
-``` 
-// 🔥 Bola de Fogo (Custo: 4 | Dano: 3d6 | Efeito: Nenhum | Critério: Nenhum )
+```
+// 🔥 Bola de Fogo (Custo: 4 PE | Dano: 3d6 | Efeito: Nenhum | Critério: Nenhum)
 ```
 
 ---
 
 ## 🔥 Círculo de Incineração
 
-O mago é envolvido por **chamas ardentes que circulam seu corpo**, formando uma aura infernal que queima qualquer inimigo que se aproxime.
+Chamas orbitam o corpo do mago e queimam quem tentar atacá-lo de perto.
 
 **Efeitos**
 
 - **Custo:** 8 PE
+- **Duração:** 2 turnos
 - **Dano:** 1d6
-- **Observação:** Só funciona quando o inimigo realiza um ataque corpo a corpo contra o mago.
+- **Critério:** só ativa quando o inimigo faz ataque corpo a corpo.
 
-
-``` 
-// 🔥 Cículo de Incineração (Custo: 8 | Dano: 1d6 | Efeito: Nenhum | Critério: Só funciona ao toque do oponente )
+```
+// 🔥 Círculo de Incineração (Custo: 8 PE | Dano: 1d6 | Efeito: dano ao contato | Critério: ataque corpo a corpo do inimigo)
 ```
 
 ---
 
 ## 🔥 Ultimate: Fênix
 
-O mago invoca das forças elementais **uma fênix alada**, símbolo da perseverança, resistência e destruição em sua forma mais pura.
+O mago invoca uma fênix ardente que explode em um golpe devastador.
 
 **Efeitos**
 
 - **Custo:** 10 PE
 - **Dano:** 8d6
 
-``` 
-// 🔥 Fênix (Custo: 10 | Dano: 8d6 | Efeito: Nenhum | Critério: Nenhum )
+```
+// 🔥 Fênix (Custo: 10 PE | Dano: 8d6 | Efeito: Nenhum | Critério: Nenhum)
 ```
 
 ---
 
-## 🔥 Habilidade (1)
+## 🔥 Muralha de Chamas
+
+Uma parede de fogo separa o mago do inimigo e dificulta a aproximação.
+
+**Efeitos**
+
+- **Custo:** 5 PE
+- **Duração:** 2 turnos
+- **Efeito:** o inimigo sofre `Desvantagem` para atacar o mago enquanto a muralha existir.
+
+```
+// 🔥 Muralha de Chamas (Custo: 5 PE | Dano: Nenhum | Efeito: Desvantagem no inimigo | Critério: Nenhum)
+```
 
 ---
 
-## 🔥 Habilidade (2)
+## 🔥 Explosão Flamejante
+
+Uma explosão curta e violenta de fogo atinge o alvo com força concentrada.
+
+**Efeitos**
+
+- **Custo:** 6 PE
+- **Dano:** 4d6
+- **Efeito:** o alvo recebe `+1d4` de dano no próximo turno por queimadura.
+
+```
+// 🔥 Explosão Flamejante (Custo: 6 PE | Dano: 4d6 | Efeito: Queimadura de +1d4 no próximo turno | Critério: Nenhum)
+```
+
+---
+
+## 🔥 Armadura Ígnea
+
+As chamas envolvem o corpo do mago e funcionam como proteção.
+
+**Efeitos**
+
+- **Custo:** 4 PE
+- **Duração:** 2 turnos
+- **Efeito:** reduz em `2` o próximo dano recebido por turno.
+
+```
+// 🔥 Armadura Ígnea (Custo: 4 PE | Dano: Nenhum | Efeito: -2 dano recebido | Critério: Nenhum)
+```
 
 ---
 
 # 🧟 Necromante
-Enquanto outros usam magia para fazer coisas insignificantes como conjurar fogo ou voar, o Necromante é um mestre sobre a própria morte. Eles estudam os segredos profundos e proibidos que ressuscitam os mortos, controlando lacaios em direção a uma variedade de objetivos. Talvez eles busquem o poder que o domínio sobre a morte proporciona. Talvez eles sejam estudiosos sérios e desavergonhados, que rejeitam os limites mesquinhos mantidos por outros. Cada inimigo que eles caem se torna um aliado ávido e descartável, eles se tornam imunes às energias da morte e da decadência e, por fim, controlam a imortalidade e o poder dos mortos-vivos para si mesmos.
+
+Enquanto outros usam magia para fazer coisas insignificantes como conjurar fogo, o Necromante domina a morte e transforma o inimigo em recurso.
 
 ---
 
 ## 🧟 Putrefação
-Você cria uma mão esquelética fantasmagórica no espaço de uma criatura, dentro do alcance. Realize um ataque à distância com magia contra a criatura para afetá-la com o **necrose** roubando a vitalidade que a parte do corpo afetado teria para o seu corpo.
+
+Uma mão espectral drena a vitalidade do alvo.
 
 **Efeitos**
-- **Custo:**  8 PE
+- **Custo:** 8 PE
 - **Dano:** 1d8
 - **Cura:** 1d8
 
-``` 
-//  🧟 Putrefação (Custo: 8 | Dano: 1d8 | Efeito: Vida + 1d8 (roubado do oponente) | Critério: Toque deve ser realizado )
+```
+// 🧟 Putrefação (Custo: 8 PE | Dano: 1d8 | Efeito: cura o usuário em 1d8 | Critério: Toque deve ser realizado)
 ```
 
 ---
 
 ## 🧟 Erga-se
-Essa magia cria um servo morto-vivo. Sua magia imbui o alvo com uma imitação corrompida de vida, erguendo-o como uma criatura morta-viva.
+
+O necromante levanta um servo morto-vivo para lutar ao seu lado.
 
 **Efeitos**
 - **Custo:** 8 PE
-- **Invocação:** Invoca uma criatura morta viva como aliado.
+- **Invocação:** cria um zumbi aliado.
 
-| ⚔️ **Atributo**   | **Valor** |
-|-------------------|-----------|
-| ❤️ HP  █          | 4         |
-| 🔮 PE   | 0         |
-| 🎯 CD  ████     | 8         |
+| ⚔️ **Atributo**     | **Valor** |
+|---------------------|-----------|
+| ❤️ HP              | 4         |
+| 🔮 PE              | 0         |
+| 🎯 CA              | 8         |
 | ⚖️ Vantagem Inicial | `Neutro`  |
-| 🚧 Limite         | 4         |
+| 🚧 Limite           | 4         |
 
-``` 
-//  🧟 Ergase (Custo: 8 | Dano: Nenhum | Efeito: Invoca Zumbi aliado | Critério: Necromante só pode ter 4 zumbis )
-
-/*
-
-Class Name: Zumbi
-
-vida = 4
-PE = 0
-CD = 8
-
-Vantamge = Neutro
-
-*/
-
+```
+// 🧟 Erga-se (Custo: 8 PE | Dano: Nenhum | Efeito: invoca Zumbi aliado | Critério: limite de 4 zumbis)
 ```
 
 ---
 
 ## 🧟 Condenado
-Você profere uma palavra de poder que pode compelir uma criatura que você possa ver, dentro do alcance, a morrer instantaneamente.
+
+Uma maldição de morte que pune o alvo com dano pesado.
 
 **Efeitos**
 - **Custo:** 10 PE
 - **Dano:** 3d10
 
-
-``` 
-//  🧟 Condenado (Custo: 10 | Dano: 3d10 | Efeito: Nenhum | Critério: Nenhum )
+```
+// 🧟 Condenado (Custo: 10 PE | Dano: 3d10 | Efeito: Nenhum | Critério: Nenhum)
 ```
 
 ---
 
-## 🧟 Habilidade (1)
+## 🧟 Sifão de Vida
+
+O necromante rouba vida do oponente e se sustenta em combate.
+
+**Efeitos**
+
+- **Custo:** 5 PE
+- **Dano:** 2d6
+- **Cura:** metade do dano causado, arredondado para baixo.
+
+```
+// 🧟 Sifão de Vida (Custo: 5 PE | Dano: 2d6 | Efeito: cura metade do dano | Critério: Nenhum)
+```
 
 ---
 
-## 🧟 Habilidade (2)
+## 🧟 Maldição da Sepultura
+
+Uma maldição enfraquece o alvo e atrapalha sua recuperação.
+
+**Efeitos**
+
+- **Custo:** 4 PE
+- **Duração:** 2 turnos
+- **Efeito:** o alvo fica em `Desvantagem` e não pode receber cura adicional no mesmo turno.
+
+```
+// 🧟 Maldição da Sepultura (Custo: 4 PE | Dano: Nenhum | Efeito: Desvantagem + bloqueio de cura extra | Critério: Nenhum)
+```
+
+---
+
+## 🧟 Ossos Protetores
+
+O necromante ergue ossos ao redor do próprio corpo como defesa temporária.
+
+**Efeitos**
+
+- **Custo:** 3 PE
+- **Duração:** 1 turno
+- **Efeito:** reduz em `2` o próximo dano recebido.
+
+```
+// 🧟 Ossos Protetores (Custo: 3 PE | Dano: Nenhum | Efeito: -2 dano recebido | Critério: Nenhum)
+```
 
 ---
 
 # ❄️ Mago de Gelo
-## Congele tudo em seu caminho
-Enquanto muitos magos sucumbem ao poder barato e simplório do fogo, o mago glacial enxerga a verdade: o frio,conhecido como o elemento verdadeiro, é de onde vem o verdadeiro poder. Somente o poder do frio pode ser eficiente como uma energia que atravessa a matéria, ou sólido como uma muralha de gelo, ou cortante como uma espada, ou cicatrizante como um medicamento.
+
+O mago de gelo controla o campo de batalha com lentidão, aprisionamento e dano consistente.
 
 ---
 
 ## ❄️ Tempestade de Gelo
-O usuário ao apontar o seu cajado para o céu, aglutinan-se uma quantidade de nuvens as quais rapidamente se carregam em uma poderosa tempestade de gelo que atingem uma área de 10 metros de raio em torno do alvo.
+
+Uma chuva de gelo cai sobre a área e desequilibra o inimigo.
 
 **Efeito**
 - **Custo:** 2 PE
-- **Condição:** `Desvantagem`
+- **Efeito:** aplica `Desvantagem` ao oponente.
 
-``` 
-//  ❄️ Tempestade de gelo (Custo: 2 | Dano: Nenhum | Efeito: Aplicar Desvantagem no Oponente | Critério: Nenhum )
+```
+// ❄️ Tempestade de Gelo (Custo: 2 PE | Dano: Nenhum | Efeito: Desvantagem | Critério: Nenhum)
 ```
 
 ---
 
-## ❄️ Prisão glacial
-Ao conjurar a magia, uma aura de frio absoluto irrompe de seus dedos. O ar ao redor do seu inimigo congela instantaneamente, formando cristais afiados que se unem em um casulo de gelo negro. O alvo é envolto em uma prisão glacial, incapaz de mover um músculo, enquanto o gelo escuro suga o calor de sua vida, deixando-o visível, porém totalmente indefeso, preso em uma tumba temporária.
+## ❄️ Prisão Glacial
+
+Cristais de gelo prendem o alvo e impedem sua reação.
 
 **Efeito:**
 - **Custo:** 4 PE
-- **Condição:** `Paralizado`
+- **Efeito:** aplica `Paralizado` no oponente.
 
-``` 
-//  ❄️ Prisão Glacial (Custo: 4 | Dano: Nenhum | Efeito: Aplicar "Paralizado" no oponente (oponente perde o próximo turno) | Critério: Nenhum )
+```
+// ❄️ Prisão Glacial (Custo: 4 PE | Dano: Nenhum | Efeito: Paralizado | Critério: oponente perde o próximo turno)
 ```
 
 ---
 
 ## ❄️ Ice Age
 
-{Insira texto}
+Uma onda de frio extremo atravessa o campo e causa dano pesado.
 
-
-``` 
-//  ❄️ Ice Age (Custo: 10 | Dano: 4d8 | Efeito: null | Critério: null )
+```
+// ❄️ Ice Age (Custo: 10 PE | Dano: 4d8 | Efeito: Nenhum | Critério: Nenhum)
 ```
 
 ---
 
-## ❄️ Habilidade (1)
+## ❄️ Lâminas de Gelo
+
+Estilhaços cortantes são lançados contra o inimigo.
+
+**Efeitos**
+
+- **Custo:** 5 PE
+- **Dano:** 2d6
+- **Efeito:** se o alvo estiver em `Desvantagem`, recebe `+1d4` de dano.
+
+```
+// ❄️ Lâminas de Gelo (Custo: 5 PE | Dano: 2d6 | Efeito: +1d4 contra alvo em Desvantagem | Critério: Nenhum)
+```
 
 ---
 
-## ❄️ Habilidade (2)
+## ❄️ Barreira de Gelo
+
+Uma parede de gelo protege o mago de ataques diretos.
+
+**Efeitos**
+
+- **Custo:** 4 PE
+- **Duração:** 2 turnos
+- **Efeito:** reduz em `2` o próximo dano recebido por turno.
+
+```
+// ❄️ Barreira de Gelo (Custo: 4 PE | Dano: Nenhum | Efeito: -2 dano recebido | Critério: Nenhum)
+```
 
 ---
+
+## ❄️ Congelamento Profundo
+
+O frio atravessa o corpo do inimigo e reduz sua capacidade de agir.
+
+**Efeitos**
+
+- **Custo:** 6 PE
+- **Dano:** 1d8
+- **Efeito:** o alvo fica em `Desvantagem` na próxima rolagem.
+
+```
+// ❄️ Congelamento Profundo (Custo: 6 PE | Dano: 1d8 | Efeito: Desvantagem no próximo ataque do alvo | Critério: Nenhum)
+```
+
+---
+
+## ❄️ Resumo dos Arquétipos
+
+- **Fogo:** dano alto e pressão contínua.
+- **Necromante:** drenagem, invocação e maldições.
+- **Gelo:** controle, defesa e punição por aproximação.
+
