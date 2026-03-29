@@ -55,32 +55,32 @@ A criação do personagem é inspirada no estilo de *Fear and Hunger*: após esc
 ---
 
 ### Mago de Fogo
-> {Insira texto}
+> {Ninguém cruza com o caminho da magia sem motivo, todos os magos tem um boa motivação. Seja por sua ambição ou por sua paixão pela magia. Qual é o seu caso? você estuda a magia para obter poder ou pelo prazer de aprender magia}
 
-- **Opção 1:** {Insira opção}
-  - Consequência: `{Consequência}`
-- **Opção 2:** {Insira opção}
-  - Consequência: `{Consequência}`
+- **Opção 1:** {Pelo poder}
+  - Consequência: `{nenhuma alteração de status}`
+- **Opção 2:** {Pelo prazer de aprender magia}
+  - Consequência: `{+5PE -10HP}`
 
 ---
 
 ### Necromante
-> {Insira texto}
+> {Ninguém cruza com o caminho da magia sem motivo, todos os magos tem um boa motivação. Seja por sua ambição ou por sua paixão pela magia. Qual é o seu caso? você estuda a magia para obter poder ou pelo prazer de aprender magia}
 
-- **Opção 1:** {Insira opção}
-  - Consequência: `{Consequência}`
-- **Opção 2:** {Insira opção}
-  - Consequência: `{Consequência}`
+- **Opção 1:** {Pelo poder}
+  - Consequência: `{nenhuma alteração de status}`
+- **Opção 2:** {Pelo prazer de aprender magia}
+  - Consequência: `{+5PE -10HP}`
 
 ---
 
 ### Mago de Gelo
-> {Insira texto}
+> {Ninguém cruza com o caminho da magia sem motivo, todos os magos tem um boa motivação. Seja por sua ambição ou por sua paixão pela magia. Qual é o seu caso? você estuda a magia para obter poder ou pelo prazer de aprender magia}
 
-- **Opção 1:** {Insira opção}
-  - Consequência: `{Consequência}`
-- **Opção 2:** {Insira opção}
-  - Consequência: `{Consequência}`
+- **Opção 1:** {Pelo poder}
+  - Consequência: `{nenhuma alteração de status}`
+- **Opção 2:** {Pelo prazer de aprender magia}
+  - Consequência: `{+5PE -10HP}`
 
 ---
 
@@ -121,32 +121,32 @@ A criação do personagem é inspirada no estilo de *Fear and Hunger*: após esc
 ---
 
 ### Mago de Fogo
-> {Insira texto}
+> {Ainda jovem, quando se debruçada em livos para criar seu repertório, encontrou um livro proibido em uma velha biblioteca. Você sabia que ele continha magias proibidas, porém ùnicas. Você deixou o livro de lado ou sua curiosidade foi maior?}
 
-- **Opção 1:** {Insira opção}
-  - Consequência: `{Consequência}`
-- **Opção 2:** {Insira opção}
-  - Consequência: `{Consequência}`
+- **Opção 1:** {Li o livro inteiro, não podia deixar essa oportunidade de lado}
+  - Consequência: `{+2CA -8PE}`
+- **Opção 2:** {Aquele livro é proibido por algum motivo, não li}
+  - Consequência: `{Nenhuma alteração de status}`
 
 ---
 
 ### Necromante
-> {Insira texto}
+> {Ainda jovem, quando se debruçada em livos para criar seu repertório, encontrou um livro proibido em uma velha biblioteca. Você sabia que ele continha magias proibidas, porém ùnicas. Você deixou o livro de lado ou sua curiosidade foi maior?}
 
-- **Opção 1:** {Insira opção}
-  - Consequência: `{Consequência}`
-- **Opção 2:** {Insira opção}
-  - Consequência: `{Consequência}`
-
+- **Opção 1:** {Li o livro inteiro, não podia deixar essa oportunidade de lado}
+  - Consequência: `{+2CA -8PE}`
+- **Opção 2:** {Aquele livro é proibido por algum motivo, não li}
+  - Consequência: `{Nenhuma alteração de status}`
+    
 ---
 
 ### Mago de Gelo
-> {Insira texto}
+> {Ainda jovem, quando se debruçada em livos para criar seu repertório, encontrou um livro proibido em uma velha biblioteca. Você sabia que ele continha magias proibidas, porém ùnicas. Você deixou o livro de lado ou sua curiosidade foi maior?}
 
-- **Opção 1:** {Insira opção}
-  - Consequência: `{Consequência}`
-- **Opção 2:** {Insira opção}
-  - Consequência: `{Consequência}`
+- **Opção 1:** {Li o livro inteiro, não podia deixar essa oportunidade de lado}
+  - Consequência: `{+2CA -8PE}`
+- **Opção 2:** {Aquele livro é proibido por algum motivo, não li}
+  - Consequência: `{Nenhuma alteração de status}`
 
 ---
 
@@ -194,32 +194,32 @@ A criação do personagem é inspirada no estilo de *Fear and Hunger*: após esc
 ---
 
 ### Mago de Fogo
-> {Insira texto}
+> {O fogo te fascina. Seu respiro brilhante te fascina, ele é vivo. Esse fogo deve queimar sob sua ordem ou sozinho?}
 
-- **Opção 1:** {Insira opção}
-  - Consequência: `{Consequência}`
-- **Opção 2:** {Insira opção}
-  - Consequência: `{Consequência}`
+- **Opção 1:** {sob minha ordem}
+  - Consequência: `{bola de fogo}`
+- **Opção 2:** {sozinho}
+  - Consequência: `{círculo de incineração}`
 
 ---
 
 ### Necromante
-> {Insira texto}
+> {A necromancia te fascina. Sua capacidade de manipilar a morte é inigualável entre as magias. Para você, a morte deve ser espalhada ou revertida}
 
-- **Opção 1:** {Insira opção}
-  - Consequência: `{Consequência}`
-- **Opção 2:** {Insira opção}
-  - Consequência: `{Consequência}`
+- **Opção 1:** {espalhada}
+  - Consequência: `{putrefação}`
+- **Opção 2:** {revertida}
+  - Consequência: `{Erga-se}`
 
 ---
 
 ### Mago de Gelo
-> {Insira texto}
+> {O frio é, sem dúvidas, belo, calmo e talvez nefasto. Sólido e organizado ele pode ser belo, mas disperso e caótico pode ser nefasto. Qual é de sua preferẽncia?}
 
-- **Opção 1:** {Insira opção}
-  - Consequência: `{Consequência}`
-- **Opção 2:** {Insira opção}
-  - Consequência: `{Consequência}`
+- **Opção 1:** {sólido}
+  - Consequência: `{Prisão glacial}`
+- **Opção 2:** {caótico}
+  - Consequência: `{Tempestade de gelo}`
 
 ---
 
@@ -260,32 +260,32 @@ A criação do personagem é inspirada no estilo de *Fear and Hunger*: após esc
 ---
 
 ### Mago de Fogo
-> {Insira texto}
+> {O que mais te interessa no seu tipo de magia? sua flexibilidade ou seu poder bruto?}
 
-- **Opção 1:** {Insira opção}
-  - Consequência: `{Consequência}`
-- **Opção 2:** {Insira opção}
-  - Consequência: `{Consequência}`
+- **Opção 1:** {flexibilidade}
+  - Consequência: `{muralha de chamas}`
+- **Opção 2:** {poder bruto}
+  - Consequência: `{Fênix}`
 
 ---
 
 ### Necromante
-> {Insira texto}
+> {O que mais te interessa no seu tipo de magia? sua flexibilidade ou seu poder bruto?}
 
-- **Opção 1:** {Insira opção}
-  - Consequência: `{Consequência}`
-- **Opção 2:** {Insira opção}
-  - Consequência: `{Consequência}`
+- **Opção 1:** {flexibilidade}
+  - Consequência: `{Sifão de vida}`
+- **Opção 2:** {poder bruto}
+  - Consequência: `{Condenação}`
 
 ---
 
 ### Mago de Gelo
-> {Insira texto}
+> {O que mais te interessa no seu tipo de magia? sua flexibilidade ou seu poder bruto?}
 
-- **Opção 1:** {Insira opção}
-  - Consequência: `{Consequência}`
-- **Opção 2:** {Insira opção}
-  - Consequência: `{Consequência}`
+- **Opção 1:** {flexibilidade}
+  - Consequência: `{Lâminas de gelo}`
+- **Opção 2:** {poder bruto}
+  - Consequência: `{Ice Age}`
 
 ---
 
@@ -326,31 +326,31 @@ A criação do personagem é inspirada no estilo de *Fear and Hunger*: após esc
 ---
 
 ### Mago de Fogo
-> {Insira texto}
+> {A opinião de um mago sobre um bom vinho é sempre algo de qualidade. Qual seu sabor de vinho favorito?}
 
-- **Opção 1:** {Insira opção}
-  - Consequência: `{Consequência}`
-- **Opção 2:** {Insira opção}
-  - Consequência: `{Consequência}`
+- **Opção 1:** {Doce com um toque amadeirado}
+  - Consequência: `{Explosão flamejante}`
+- **Opção 2:** {Não gosto de vinho!}
+  - Consequência: `{Armadura Ígnea}`
 
 ---
 
 ### Necromante
-> {Insira texto}
+> {A opinião de um mago sobre um bom vinho é sempre algo de qualidade. Qual seu sabor de vinho favorito?}
 
-- **Opção 1:** {Insira opção}
-  - Consequência: `{Consequência}`
-- **Opção 2:** {Insira opção}
-  - Consequência: `{Consequência}`
+- **Opção 1:** {Doce com um toque amadeirado}
+  - Consequência: `{Maldição da sepultura}`
+- **Opção 2:** {Não gosto de vinho!}
+  - Consequência: `{Ossos protetores}`
 
 ---
 
 ### Mago de Gelo
-> {Insira texto}
+> {A opinião de um mago sobre um bom vinho é sempre algo de qualidade. Qual seu sabor de vinho favorito?}
 
-- **Opção 1:** {Insira opção}
-  - Consequência: `{Consequência}`
-- **Opção 2:** {Insira opção}
-  - Consequência: `{Consequência}`
+- **Opção 1:** {Doce com um toque amadeirado}
+  - Consequência: `{Barreira de gelo}`
+- **Opção 2:** {Não gosto de vinho!}
+  - Consequência: `{Congelamento profundo}`
 
 ---
