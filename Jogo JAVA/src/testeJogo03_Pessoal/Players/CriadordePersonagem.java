@@ -4,7 +4,7 @@ import java.util.Scanner;
 import testeJogo03_Pessoal.Players.Classes.*;
 
 public class CriadordePersonagem {
-    
+
     Personagem player;
     Personagem oponente;
     SistemaHabilidades habilidades;
@@ -30,7 +30,7 @@ public class CriadordePersonagem {
     void classeEscolha () {
 
         System.out.println("Escolha a classe: \n" +
-            "1 = Barbaro \n" + 
+            "1 = Barbaro \n" +
             "2 = Caçador \n" +
             "3 = Mago "
         );
@@ -43,7 +43,18 @@ public class CriadordePersonagem {
 
         } else if ( escolhaClasse == 2 ) {
 
-            this.player = new Cacador(oponente);
+            System.out.println("Escolha o arquétipo do Caçador: \n" +
+                "1 = Arqueiro \n" +
+                "2 = Pistoleiro "
+            );
+
+            int escolhaCacador = sc.nextInt();
+
+            if (escolhaCacador == 1) {
+                this.player = new Cacador.Arqueiro(oponente);
+            } else {
+                this.player = new Cacador.Pistoleiro(oponente);
+            }
 
         } else if ( escolhaClasse == 3 ) {
 
@@ -66,105 +77,33 @@ public class CriadordePersonagem {
             } else if (escolhaArquetipo == 3) {
 
                 this.player = new Mago.MagoGelo(oponente);
-                
+
             }
 
         }
 
     }
     void Escolhas ( Personagem player ) {
-    
-        // Escolha (1) =========================================================================================
 
-        System.out.println("Insira Texto");
+        // Mantido simples de propósito: você pode substituir estes textos
+        // pela narrativa de Fear & Hunger quando definir as consequências.
 
-        escolha = sc.nextInt();
+        for (int pergunta = 1; pergunta <= 5; pergunta++) {
+            System.out.println();
+            System.out.println("Escolha " + pergunta + " (placeholder).");
+            System.out.println("1 = Opção 1");
+            System.out.println("2 = Opção 2");
+            System.out.print("Escolha (1 ou 2): ");
 
-        if (escolha == 1 ) {
+            escolha = sc.nextInt();
 
-            // Consequência (1)
-            System.out.println("Consequência (1)");
-
-        } else if ( escolha == 2 ) {
-
-            // Consequência (2)
-            System.out.println("Consequência (2)");
-            
+            if (escolha == 1) {
+                System.out.println("Consequência (1) ainda não implementada.");
+            } else if (escolha == 2) {
+                System.out.println("Consequência (2) ainda não implementada.");
+            } else {
+                System.out.println("Escolha inválida. Nenhuma consequência aplicada.");
+            }
         }
-        System.out.println();
-        // Escolha (2) =========================================================================================
-
-        System.out.println("Insira Texto");
-
-        escolha = sc.nextInt();
-
-        if (escolha == 1 ) {
-
-            // Consequência (1)
-            System.out.println("Consequência");
-
-        } else if ( escolha == 2 ) {
-
-            // Consequência (2)
-            System.out.println("Consequência");
-
-        }
-        System.out.println();
-        // Escolha (3) =========================================================================================
-
-        System.out.println("Insira Texto");
-
-        escolha = sc.nextInt();
-
-        if (escolha == 1 ) {
-
-            // Consequência (1)
-            System.out.println("Consequência");
-
-        } else if ( escolha == 2 ) {
-
-            // Consequência (2)
-            System.out.println("Consequência");
-
-        }
-        System.out.println();
-        // Escolha (4) =========================================================================================
-
-        System.out.println("Insira Texto");
-
-        escolha = sc.nextInt();
-
-        if (escolha == 1 ) {
-
-            // Consequência (1)
-            System.out.println("Consequência");
-
-        } else if ( escolha == 2 ) {
-
-            // Consequência (2)
-            System.out.println("Consequência");
-
-        }
-        System.out.println();
-        // Escolha (5) =========================================================================================
-
-        System.out.println("Insira Texto");
-
-        escolha = sc.nextInt();
-
-        if (escolha == 1 ) {
-
-            // Consequência (1)
-            System.out.println("Consequência");
-
-        } else if ( escolha == 2 ) {
-
-            // Consequência (2)
-            System.out.println("Consequência");
-
-        }
-        System.out.println();
     }
 }
-
-

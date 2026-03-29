@@ -12,7 +12,7 @@ public class Mago extends Personagem {
 
   public Mago(Personagem oponente) {
 
-    super(30, 10, 30, "Neutro");
+    super(60, 10, 30, "Neutro");
 
     this.oponente = oponente;
 
@@ -20,22 +20,35 @@ public class Mago extends Personagem {
 
   public static class MagoFogo extends Mago {
 
-    SistemaHabilidades habilidades;
-
     public MagoFogo(Personagem oponente) {
       super(oponente);
     }
 
     public void acao() {
 
-      System.out.println("Escolha uma entre as suas Habilidades" + "\n" +
-          "1 = " + habilidades.habilidadesEscolhidas.get(0) + "\n" +
-          "2 = " + habilidades.habilidadesEscolhidas.get(1) + "\n" +
-          "3 = " + habilidades.habilidadesEscolhidas.get(2) + "\n");
+      SistemaHabilidades h = getHabilidades();
 
-      int acao = sc.nextInt() - 1;
+      System.out.println("\n=== Sua ação (Mago de Fogo) ===");
+      System.out.println("1 = " + h.habilidadesEscolhidas.get(0));
+      System.out.println("2 = " + h.habilidadesEscolhidas.get(1));
+      System.out.println("3 = " + h.habilidadesEscolhidas.get(2));
+      System.out.println("4 = Descansar (recuperar PE)");
+      System.out.print("Escolha (1-4): ");
 
-      habilidades.usarHabilidade(acao);
+      int escolha = sc.nextInt();
+
+      if (escolha == 4) {
+        descansar();
+        return;
+      }
+
+      int indice = escolha - 1;
+      if (indice < 0 || indice >= h.habilidadesEscolhidas.size()) {
+        System.out.println("Você hesita e perde o momento de agir...");
+        return;
+      }
+
+      h.usarHabilidade(indice);
 
     }
 
@@ -48,8 +61,6 @@ public class Mago extends Personagem {
 
   public static class MagoGelo extends Mago {
 
-    SistemaHabilidades habilidadesGelo;
-
     public MagoGelo(Personagem oponente) {
 
       super(oponente);
@@ -58,14 +69,29 @@ public class Mago extends Personagem {
 
     public void acao() {
 
-      System.out.println("Escolha uma entre as suas Habilidades" + "\n" +
-          "1 = " + habilidadesGelo.habilidadesEscolhidas.get(0) + "\n" +
-          "2 = " + habilidadesGelo.habilidadesEscolhidas.get(1) + "\n" +
-          "3 = " + habilidadesGelo.habilidadesEscolhidas.get(2) + "\n");
+      SistemaHabilidades h = getHabilidades();
 
-      int acao = sc.nextInt() - 1;
+      System.out.println("\n=== Sua ação (Mago de Gelo) ===");
+      System.out.println("1 = " + h.habilidadesEscolhidas.get(0));
+      System.out.println("2 = " + h.habilidadesEscolhidas.get(1));
+      System.out.println("3 = " + h.habilidadesEscolhidas.get(2));
+      System.out.println("4 = Descansar (recuperar PE)");
+      System.out.print("Escolha (1-4): ");
 
-      habilidadesGelo.usarHabilidade(acao);
+      int escolha = sc.nextInt();
+
+      if (escolha == 4) {
+        descansar();
+        return;
+      }
+
+      int indice = escolha - 1;
+      if (indice < 0 || indice >= h.habilidadesEscolhidas.size()) {
+        System.out.println("Você hesita e o frio paira no ar...");
+        return;
+      }
+
+      h.usarHabilidade(indice);
 
     }
 
@@ -78,8 +104,6 @@ public class Mago extends Personagem {
 
   public static class Necromante extends Mago {
 
-    SistemaHabilidades habilidades;
-
     public Necromante(Personagem oponente) {
 
       super(oponente);
@@ -88,14 +112,29 @@ public class Mago extends Personagem {
 
     @Override
     public void acao() {
+      SistemaHabilidades h = getHabilidades();
 
-      System.out.println("Escolha uma entre as suas Habilidades" + "\n" +
-          "1 = " + habilidades.habilidadesEscolhidas.get(0) + "\n" +
-          "2 = " + habilidades.habilidadesEscolhidas.get(1) + "\n" +
-          "3 = " + habilidades.habilidadesEscolhidas.get(2) + "\n");
+      System.out.println("\n=== Sua ação (Necromante) ===");
+      System.out.println("1 = " + h.habilidadesEscolhidas.get(0));
+      System.out.println("2 = " + h.habilidadesEscolhidas.get(1));
+      System.out.println("3 = " + h.habilidadesEscolhidas.get(2));
+      System.out.println("4 = Descansar (recuperar PE)");
+      System.out.print("Escolha (1-4): ");
 
-      int acao = sc.nextInt() - 1;
+      int escolha = sc.nextInt();
 
+      if (escolha == 4) {
+        descansar();
+        return;
+      }
+
+      int indice = escolha - 1;
+      if (indice < 0 || indice >= h.habilidadesEscolhidas.size()) {
+        System.out.println("Os mortos aguardam… mas nada acontece.");
+        return;
+      }
+
+      h.usarHabilidade(indice);
     }
 
     @Override
