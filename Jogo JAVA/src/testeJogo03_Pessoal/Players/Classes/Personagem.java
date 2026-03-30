@@ -126,6 +126,16 @@ public class Personagem {
     return pe;
   }
 
+  public void alterarPe(int delta) {
+    peMaxima = Math.max(0, peMaxima + delta);
+    pe = Math.min(peMaxima, Math.max(0, pe + delta));
+  }
+
+  public void alterarVidaMaxima(int delta) {
+    vidaMaxima = Math.max(1, vidaMaxima + delta);
+    vida = Math.min(vidaMaxima, Math.max(0, vida + delta));
+  }
+
   public int getCaEfetivo() {
     return ca + bonusCaTemporario;
   }

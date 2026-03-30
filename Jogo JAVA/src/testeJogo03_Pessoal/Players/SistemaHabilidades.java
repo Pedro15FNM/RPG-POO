@@ -29,6 +29,45 @@ public class SistemaHabilidades {
     }
   }
 
+  public SistemaHabilidades(Personagem personagem, Personagem oponente, java.util.List<String> escolhas) {
+    inicializarHabilidades(personagem, oponente);
+    escolherHabilidadesPorNome(escolhas);
+  }
+
+  private void escolherHabilidadesPorNome(java.util.List<String> escolhas) {
+    if (escolhas == null || escolhas.isEmpty()) {
+      escolherHabilidadesAleatorias();
+      return;
+    }
+
+    for (String nome : escolhas) {
+      if (nome == null || nome.isEmpty()) {
+        continue;
+      }
+
+      Habilidade encontrada = null;
+      for (Habilidade habilidade : habilidadesDisponiveis) {
+        if (habilidade.nome.equalsIgnoreCase(nome)) {
+          encontrada = habilidade;
+          break;
+        }
+      }
+
+      if (encontrada != null && !habilidadesEscolhidas.contains(encontrada)) {
+        habilidadesEscolhidas.add(encontrada);
+      }
+    }
+
+    for (Habilidade habilidade : habilidadesDisponiveis) {
+      if (habilidadesEscolhidas.size() >= 3) {
+        break;
+      }
+      if (!habilidadesEscolhidas.contains(habilidade)) {
+        habilidadesEscolhidas.add(habilidade);
+      }
+    }
+  }
+
   private void inicializarHabilidades(Personagem personagem, Personagem oponente) {
 
     ListaHabilidades lista = new ListaHabilidades(personagem, oponente);

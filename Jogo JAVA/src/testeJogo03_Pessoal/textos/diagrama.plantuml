@@ -5,26 +5,24 @@ skinparam classFontStyle Bold
 skinparam packageStyle rectangle
 
 package "testeJogo03_Pessoal.Players" {
-
     class Jogo {
         + {static} main(args: String[]) : void
     }
 
-    class Dado {
-        - dado : int
-        - primeiroDado : int
-        + rolarDado(condicao: String) : int
+    class CriadorDePersonagemException {
+        + CriadorDePersonagemException(message: String)
+        + CriadorDePersonagemException(message: String, cause: Throwable)
     }
 
     class CriadordePersonagem {
         - player : Personagem
         - oponente : Personagem
-        - habilidades : SistemaHabilidades
-        - escolha : int
         - sc : Scanner
-        + CriadordePersonagem(player: Personagem, oponente: Personagem)
+        - habilidadesSelecionadas : List<String>
+        + CriadordePersonagem(player: Personagem, oponente: Personagem) throws CriadorDePersonagemException
         - classeEscolha() : void
-        - Escolhas(player: Personagem) : void
+        - realizarEscolhas() : void
+        - lerOpcaoValida(min: int, max: int) : int
     }
 
     class SistemaHabilidades {
@@ -32,14 +30,17 @@ package "testeJogo03_Pessoal.Players" {
         + habilidadesEscolhidas : List<Habilidade>
         - sc : Scanner
         + SistemaHabilidades(personagem: Personagem, oponente: Personagem)
+        + SistemaHabilidades(personagem: Personagem, oponente: Personagem, autoEscolha: boolean)
+        + SistemaHabilidades(personagem: Personagem, oponente: Personagem, escolhas: List<String>)
         + escolherHabilidades() : void
-        + usarHabilidade(numero: int) : void
+        + escolherHabilidadesPorNome(escolhas: List<String>) : void
     }
 
     class Habilidade {
         + nome : String
+        + descricao : String
         + acao : Runnable
-        + Habilidade(nome: String, acao: Runnable)
+        + Habilidade(nome: String, descricao: String, acao: Runnable)
         + toString() : String
     }
 
@@ -47,8 +48,6 @@ package "testeJogo03_Pessoal.Players" {
         # personagem : Personagem
         # oponente : Personagem
         # dadoClass : Dado
-        # dano : int
-        # dado : int
         - sc : Scanner
         + ListaHabilidades(personagem: Personagem, oponente: Personagem)
     }
@@ -58,81 +57,82 @@ package "testeJogo03_Pessoal.Players" {
 
     class "ListaHabilidades.Mago.Fogo" as LH_Fogo {
         + bolaDeFogo() : void
-        + habilidade2() : void
-        + habilidade3() : void
-        + habilidade4() : void
-        + habilidade5() : void
+        + circuloDeIncineracao() : void
+        + fenix() : void
+        + muralhaDeChamas() : void
+        + explosaoFlamejante() : void
+        + armaduraIgnea() : void
     }
 
     class "ListaHabilidades.Mago.Gelo" as LH_Gelo {
-        + tempestadeDeGelo(player: Personagem, oponente: Personagem) : void
-        + habilidade2() : void
-        + habilidade3() : void
-        + habilidade4() : void
-        + habilidade5() : void
+        + tempestadeDeGelo() : void
+        + prisaoGlacial() : void
+        + iceAge() : void
+        + laminasDeGelo() : void
+        + barreiraDeGelo() : void
+        + congelamentoProfundo() : void
     }
 
     class "ListaHabilidades.Mago.Necromancia" as LH_Necromancia {
-        + invocarZumbi() : void
-        + habilidade2() : void
-        + habilidade3() : void
-        + habilidade4() : void
-        + habilidade5() : void
+        + putrefacao() : void
+        + ergaSe() : void
+        + condenado() : void
+        + sifaoDeVida() : void
+        + maldicaoDaSepultura() : void
+        + ossosProtetores() : void
     }
 
-    class "ListaHabilidades.Mago.Necromancia.Zumbi" as Zumbi {
-        + vida : int
-        + ca : int
-        + dadoDano : int
-    }
-
-    class "ListaHabilidades.Barbaro" as LH_Barbaro {
-        + Habilidade_1() : void
-        + Habilidade_2() : void
-        + Habilidade_3() : void
-        + Habilidade_4() : void
-        + Habilidade_5() : void
-        + Habilidade_6() : void
-    }
-
-    class "ListaHabilidades.Cacador" as LH_Cacador {
+    class "ListaHabilidades.SkillsBarbaro" as LH_Barbaro {
+        + furia() : void
+        + ataque() : void
+        + investidaBrutal() : void
+        + peleDeFerro() : void
+        + gritoDeGuerra() : void
+        + retaliacao() : void
     }
 
     class "ListaHabilidades.Cacador.Arqueiro" as LH_Arqueiro {
-        + Habilidade_1() : void
-        + Habilidade_2() : void
-        + Habilidade_3() : void
-        + Habilidade_4() : void
-        + Habilidade_5() : void
-        + Habilidade_6() : void
+        + tiroDeFlecha() : void
+        + marcaDoCacador() : void
+        + chuvaDeFlechas() : void
+        + flechaPerfurante() : void
+        + armadilhaDeCaca() : void
+        + recuoAgil() : void
+        + tiroDePrecisao() : void
     }
 
     class "ListaHabilidades.Cacador.Pistoleiro" as LH_Pistoleiro {
-        + Habilidade_1() : void
-        + Habilidade_2() : void
-        + Habilidade_3() : void
-        + Habilidade_4() : void
-        + Habilidade_5() : void
-        + Habilidade_6() : void
+        + tiroRapido() : void
+        + saqueRelampago() : void
+        + balaRicochete() : void
+        + tiroDePrecisao() : void
+        + coberturaTatica() : void
+        + execucao() : void
     }
 }
 
 package "testeJogo03_Pessoal.Players.Classes" {
-
     class Personagem {
         + vida : int
+        + vidaMaxima : int
         + ca : int
         # pe : int
+        + peMaxima : int
         + vantagem : String
-        # sc : Scanner
-        # habilidades : SistemaHabilidades
+        + bonusCaTemporario : int
+        + paralizado : boolean
+        + zumbisInvocados : int
         + Personagem(vida: int, ca: int, pe: int, vantagem: String)
-        # Escolha() : int
-        # Recuperacao() : void
-        + acao() : void
-        + getVantagem() : String
+        + descansar() : void
+        + getPe() : int
+        + alterarPe(delta: int) : void
+        + alterarVidaMaxima(delta: int) : void
+        + getCaEfetivo() : int
+        + tentarGastarPe(custo: int) : boolean
         + setHabilidades(habilidades: SistemaHabilidades) : void
-        + toString() : String
+        + getHabilidades() : SistemaHabilidades
+        + receberDano(danoBruto: int) : void
+        + acao() : void
     }
 
     class Barbaro {
@@ -146,15 +146,15 @@ package "testeJogo03_Pessoal.Players.Classes" {
     }
 
     class "Cacador.Arqueiro" as Arqueiro {
-        - habilidades : SistemaHabilidades
         + Arqueiro(oponente: Personagem)
         + acao() : void
+        + recarregar() : void
     }
 
     class "Cacador.Pistoleiro" as Pistoleiro {
-        - habilidades : SistemaHabilidades
         + Pistoleiro(oponente: Personagem)
         + acao() : void
+        + recarregar() : void
     }
 
     class Mago {
@@ -163,69 +163,44 @@ package "testeJogo03_Pessoal.Players.Classes" {
     }
 
     class "Mago.MagoFogo" as MagoFogo {
-        - habilidades : SistemaHabilidades
         + MagoFogo(oponente: Personagem)
         + acao() : void
-        + toString() : String
     }
 
     class "Mago.MagoGelo" as MagoGelo {
-        - habilidadesGelo : SistemaHabilidades
         + MagoGelo(oponente: Personagem)
         + acao() : void
-        + toString() : String
     }
 
     class "Mago.Necromante" as Necromante {
-        - habilidades : SistemaHabilidades
         + Necromante(oponente: Personagem)
         + acao() : void
-        + toString() : String
     }
 }
 
-' ── Herança ──────────────────────────────────────────────────
 Personagem <|-- Barbaro
 Personagem <|-- Cacador
 Personagem <|-- Mago
-
 Cacador <|-- Arqueiro
 Cacador <|-- Pistoleiro
-
 Mago <|-- MagoFogo
 Mago <|-- MagoGelo
 Mago <|-- Necromante
 
-' ── Composição / Agregação ───────────────────────────────────
 Jogo ..> CriadordePersonagem : cria
 Jogo o-- Personagem : player / oponente
-
 CriadordePersonagem o-- Personagem : player / oponente
 CriadordePersonagem ..> SistemaHabilidades : cria e atribui
-
-SistemaHabilidades o-- Habilidade : habilidadesDisponiveis\nhabilidadesEscolhidas
+SistemaHabilidades o-- Habilidade : habilidadesDisponiveis
+SistemaHabilidades o-- Habilidade : habilidadesEscolhidas
 SistemaHabilidades ..> ListaHabilidades : usa
-
-ListaHabilidades o-- Dado : dadoClass
 ListaHabilidades +-- LH_Mago
 LH_Mago +-- LH_Fogo
 LH_Mago +-- LH_Gelo
 LH_Mago +-- LH_Necromancia
-LH_Necromancia +-- Zumbi
 ListaHabilidades +-- LH_Barbaro
-ListaHabilidades +-- LH_Cacador
-LH_Cacador +-- LH_Arqueiro
-LH_Cacador +-- LH_Pistoleiro
-
+ListaHabilidades +-- LH_Arqueiro
+ListaHabilidades +-- LH_Pistoleiro
 Personagem o-- SistemaHabilidades : habilidades
-
-' ── Dependências de uso ───────────────────────────────────────
-SistemaHabilidades ..> Personagem : usa (instanceof checks)
-SistemaHabilidades ..> Mago
-SistemaHabilidades ..> MagoFogo
-SistemaHabilidades ..> MagoGelo
-SistemaHabilidades ..> Necromante
-SistemaHabilidades ..> Cacador
-SistemaHabilidades ..> Barbaro
 
 @enduml

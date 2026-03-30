@@ -1,12 +1,12 @@
 # 🤠 Caçador
 
-Neste arquivo será explicado o funcionamento da classe **Caçador**, seus arquétipos, atributos, habilidades e implementação geral em combate.
+Este arquivo descreve a classe **Caçador**, seus arquétipos, atributos e como o código estrutura o combate à distância.
 
 ---
 
 ## 📜 Atributos Base
 
-Todos os caçadores, independentemente de sua especialização, começam com os seguintes atributos padrão.
+Todos os caçadores começam com os seguintes valores base:
 
 | ⚔️ **Atributo**     | **Valor** |
 |---------------------|-----------|
@@ -19,12 +19,12 @@ Todos os caçadores, independentemente de sua especialização, começam com os 
 
 ## 🏹 Regras da Classe
 
-- **Combate à distância**
-- **Gestão de munição**
-- **Até 6 habilidades por arquétipo**
-- **1 habilidade de recuperação**, herdada da classe `Personagem`
+- **Combate à distância e gestão de munição**
+- **Até 6 habilidades disponíveis por arquétipo**
+- **1 habilidade de recuperação** herdada da classe `Personagem`
+- **Habilidades oponentes são selecionadas automaticamente** pelo `SistemaHabilidades`
 
-A classe foi organizada para ficar fácil de implementar em código: habilidades com custo fixo, dano direto, bônus de acerto e efeitos de controle simples.
+No fluxo de criação, o jogador escolhe apenas classe e arquétipo. As habilidades ativas são definidas automativamente por `CriadordePersonagem` a partir das opções do `Criador_FearHunger.md`.
 
 ---
 
@@ -32,229 +32,123 @@ A classe foi organizada para ficar fácil de implementar em código: habilidades
 
 O Arqueiro domina o combate com arco, mira e pressão constante de longo alcance.
 
-- **💣 Munição:** 30
-- **Habilidade padrão:** `Recarregar`
-
----
+- **💣 Munição inicial:** 30 flechas
+- **Habilidade de suporte:** `Recarregar`
 
 ### 🏹 Tiro de Flecha
 
-Disparo básico e preciso, usado como ataque principal do arqueiro.
-
-**Efeitos**
+Disparo básico e preciso, usado como ataque principal.
 
 - **Custo:** 1 PE & 1 Flecha
 - **Dano:** 1d8
 
-```
-// 🏹 Tiro de Flecha (Custo: 1 PE & 1 Flecha | Dano: 1d8 | Efeito: Nenhum | Critério: Nenhum)
-```
-
----
-
 ### 🏹 Marca do Caçador
 
-O arqueiro marca um alvo e passa a explorá-lo com mais eficiência.
-
-**Efeitos**
+Marca um alvo para aumentar o dano infligido por ataques subsequentes.
 
 - **Custo:** 8 PE
 - **Duração:** 3 turnos
-- **Efeito:** o alvo recebe o dobro de dano do arqueiro enquanto estiver marcado.
-
-```
-// 🏹 Marca do Caçador (Custo: 8 PE | Dano: Nenhum | Efeito: Inimigo recebe dano dobrado do arqueiro | Critério: gastar o turno marcando o alvo)
-```
-
----
+- **Efeito:** alvo marcado recebe dano extra do Arqueiro.
 
 ### 🏹 Chuva de Flechas
 
-O arqueiro dispara várias flechas em uma área pequena, pressionando o inimigo com volume de ataque.
-
-**Efeitos**
+Pressiona o inimigo com várias flechas ao mesmo tempo.
 
 - **Custo:** 5 PE & 3 Flechas
 - **Dano:** 2d6
-- **Efeito:** se o alvo estiver marcado, recebe `+1d4` de dano adicional.
-
-```
-// 🏹 Chuva de Flechas (Custo: 5 PE & 3 Flechas | Dano: 2d6 | Efeito: +1d4 contra alvo marcado | Critério: precisa de munição suficiente)
-```
-
----
+- **Efeito:** +1d4 contra alvo marcado.
 
 ### 🏹 Flecha Perfurante
 
-Uma flecha reforçada atravessa brechas na defesa do oponente.
-
-**Efeitos**
+Tiro focado que atravessa a defesa do inimigo.
 
 - **Custo:** 4 PE & 1 Flecha
 - **Dano:** 2d8
-- **Efeito:** ignora `2` pontos de CA do alvo para esta rolagem.
-
-```
-// 🏹 Flecha Perfurante (Custo: 4 PE & 1 Flecha | Dano: 2d8 | Efeito: ignora 2 CA | Critério: Nenhum)
-```
-
----
+- **Efeito:** ignora 2 pontos de CA.
 
 ### 🏹 Armadilha de Caça
 
-O arqueiro prepara uma armadilha simples para reduzir a mobilidade do alvo.
-
-**Efeitos**
+Prepara uma armadilha para reduzir a mobilidade do alvo.
 
 - **Custo:** 3 PE
-- **Duração:** 1 turno
-- **Efeito:** o alvo fica em `Desvantagem` no próximo ataque.
-
-```
-// 🏹 Armadilha de Caça (Custo: 3 PE | Dano: Nenhum | Efeito: Desvantagem no próximo ataque do alvo | Critério: Nenhum)
-```
-
----
+- **Efeito:** alvo entra em Desvantagem no próximo ataque.
 
 ### 🏹 Recuo Ágil
 
-O arqueiro se reposiciona rapidamente para manter distância segura.
-
-**Efeitos**
+Recuo rápido para ganhar melhor posicionamento defensivo.
 
 - **Custo:** 2 PE
-- **Efeito:** o arqueiro ganha `+2` de CA até o início do próximo turno.
-
-```
-// 🏹 Recuo Ágil (Custo: 2 PE | Dano: Nenhum | Efeito: +2 CA temporária | Critério: Nenhum)
-```
-
----
+- **Efeito:** +2 de CA até o próximo turno.
 
 ### 🏹 Tiro de Precisão
 
-Um disparo lento, calculado e muito mais mortal que um tiro comum.
-
-**Efeitos**
+Disparo calculado para causar dano mais alto.
 
 - **Custo:** 6 PE & 1 Flecha
 - **Dano:** 3d6
-- **Efeito:** se o alvo estiver marcado, este ataque recebe `+1d6` de dano.
-
-```
-// 🏹 Tiro de Precisão (Custo: 6 PE & 1 Flecha | Dano: 3d6 | Efeito: +1d6 contra alvo marcado | Critério: Nenhum)
-```
+- **Efeito:** +1d6 se o alvo estiver marcado.
 
 ---
 
 # 🔫 Pistoleiro
 
-O Pistoleiro usa revólveres, tiros curtos e explosões rápidas de dano.
+O Pistoleiro usa revólveres e explosões rápidas de dano.
 
-- **💣 Munição:** 6
-- **Habilidade padrão:** `Recarregar`
-
----
+- **💣 Munição inicial:** 6 balas
+- **Habilidade de suporte:** `Recarregar`
 
 ### 🔫 Tiro Rápido
 
-Um disparo acelerado para pressionar o inimigo sem dar tempo de reação.
-
-**Efeitos**
+Disparo veloz que prepara o próximo ataque.
 
 - **Custo:** 2 PE & 1 Bala
 - **Dano:** 1d8
-- **Efeito:** o próximo ataque do pistoleiro recebe `+1` na rolagem.
-
-```
-// 🔫 Tiro Rápido (Custo: 2 PE & 1 Bala | Dano: 1d8 | Efeito: +1 na próxima rolagem de ataque | Critério: Nenhum)
-```
-
----
+- **Efeito:** próximo ataque recebe +1.
 
 ### 🔫 Saque Relâmpago
 
-O pistoleiro saca e mira em um único movimento, ganhando vantagem no início da troca.
-
-**Efeitos**
+Saque instantâneo que proporciona vantagem no ataque seguinte.
 
 - **Custo:** 2 PE
-- **Efeito:** ganha `Vantagem` na próxima rolagem de ataque.
-
-```
-// 🔫 Saque Relâmpago (Custo: 2 PE | Dano: Nenhum | Efeito: Vantagem na próxima rolagem | Critério: Nenhum)
-```
-
----
+- **Efeito:** vantagem no próximo ataque.
 
 ### 🔫 Bala Ricochete
 
-A bala rebate em superfícies e atinge o alvo com ângulo imprevisível.
-
-**Efeitos**
+Disparo que ricocheteia e causa dano adicional.
 
 - **Custo:** 4 PE & 1 Bala
 - **Dano:** 2d6
-- **Efeito:** se a rolagem acertar, causa `+1d4` de dano adicional.
-
-```
-// 🔫 Bala Ricochete (Custo: 4 PE & 1 Bala | Dano: 2d6 | Efeito: +1d4 extra no acerto | Critério: Nenhum)
-```
-
----
+- **Efeito:** +1d4 de dano extra no acerto.
 
 ### 🔫 Tiro de Precisão
 
-Disparo focado para maximizar a chance de dano alto.
-
-**Efeitos**
+Disparo focado que reduz a defesa do inimigo.
 
 - **Custo:** 5 PE & 1 Bala
 - **Dano:** 3d6
-- **Efeito:** reduz em `1` a CA do alvo apenas para esta rolagem.
-
-```
-// 🔫 Tiro de Precisão (Custo: 5 PE & 1 Bala | Dano: 3d6 | Efeito: reduz 1 CA temporariamente | Critério: Nenhum)
-```
-
----
+- **Efeito:** reduz 1 ponto de CA no alvo para esta rolagem.
 
 ### 🔫 Cobertura Tática
 
-O pistoleiro se protege atrás de cobertura e se prepara para a troca seguinte.
-
-**Efeitos**
+Defesa rápida que reduz o dano do próximo golpe.
 
 - **Custo:** 3 PE
-- **Duração:** 1 turno
-- **Efeito:** reduz em `2` o próximo dano recebido.
-
-```
-// 🔫 Cobertura Tática (Custo: 3 PE | Dano: Nenhum | Efeito: -2 dano no próximo golpe recebido | Critério: Nenhum)
-```
-
----
+- **Efeito:** -2 no próximo dano recebido.
 
 ### 🔫 Execução
 
-O pistoleiro finaliza alvos já enfraquecidos com um disparo mortal.
-
-**Efeitos**
+Tiro finalizador para alvos enfraquecidos.
 
 - **Custo:** 8 PE & 1 Bala
 - **Dano:** 4d6
-- **Efeito:** causa `+2` de dano se o alvo estiver com menos da metade da vida.
-
-```
-// 🔫 Execução (Custo: 8 PE & 1 Bala | Dano: 4d6 | Efeito: +2 dano em alvo abaixo de 50% HP | Critério: Nenhum)
-```
+- **Efeito:** +2 de dano se o alvo estiver abaixo de 50% de vida.
 
 ---
 
 ## 🏹🔫 Resumo dos Arquétipos
 
-Os dois arquétipos do Caçador foram pensados para facilitar a implementação no combate:
+- **Arqueiro:** combate à distância, marcação e dano consistente.
+- **Pistoleiro:** tiros rápidos, reposicionamento e finalizações.
 
-- **Arqueiro:** foco em marcação, dano consistente e controle de distância.
-- **Pistoleiro:** foco em tiros rápidos, reposicionamento e finalização.
+O fluxo de criação agora determina as habilidades do Caçador automaticamente, sem escolher manualmente cada uma durante a criação.
 

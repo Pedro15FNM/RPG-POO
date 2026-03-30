@@ -48,12 +48,18 @@ public class Jogo {
     System.out.println("=== Batalha de RPG (demonstração) ===");
     System.out.println("O inimigo já surgiu. Prepare-se...");
 
-    CriadordePersonagem criador = new CriadordePersonagem(player, oponente);
-
-    player = criador.player;
+    CriadordePersonagem criador;
+    try {
+      criador = new CriadordePersonagem(player, oponente);
+      player = criador.player;
+    } catch (CriadorDePersonagemException e) {
+      System.out.println("Erro ao criar personagem: " + e.getMessage());
+      System.out.println("A execução do jogo foi interrompida para evitar uma ficha inválida.");
+      return;
+    }
 
     // Agora que o jogador existe, conseguimos configurar o "SistemaHabilidades" do oponente
-    // com seleção automática (IA).
+    // com seleção automática pelo próprio sistema.
     oponente.setHabilidades(new SistemaHabilidades(oponente, player, true));
 
     System.out.println("\nSua ficha foi criada. Começa agora!\n");

@@ -116,7 +116,6 @@ A criação do personagem é inspirada no estilo de *Fear and Hunger*: após esc
 - **Opção 1:** {Busquei caçá-lo de volta, não aceito ser uma presa}
   - Consequência: `{O conflito foi muito difícil, você saiu com uma cicatriz feia mas mais experiente: -10HP +2CA}`
 - **Opção 2:** {Eu fujo do meu caçador, a melhor chance de uma presa é sempre fugir}
-  - Consequência: `{Você consegue fugir: nenhuma alteração de status}`
 
 ---
 
@@ -147,8 +146,6 @@ A criação do personagem é inspirada no estilo de *Fear and Hunger*: após esc
   - Consequência: `{+2CA -8PE}`
 - **Opção 2:** {Aquele livro é proibido por algum motivo, não li}
   - Consequência: `{Nenhuma alteração de status}`
-
----
 
 ---
 
