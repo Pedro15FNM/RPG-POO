@@ -1,3 +1,4 @@
+/* ======= ESTILOS GERAIS: FONTES, BODY ======= */
 * {
     margin: 0;
     padding: 0;
@@ -23,7 +24,10 @@ body {
     justify-content: center;
     overflow-x: hidden;
 }
+/* ======= FIM ESTILOS GERAIS ======= */
 
+
+/* ======= HOME ======= */
 /* background específico da home */
 .container-home {
     background-image: url('imagens-de-fundo/taverna-background.gif');
@@ -70,7 +74,7 @@ body {
     margin: 0 0 0 100px;
 }
 
-.btn {
+.btn{
     background: linear-gradient(135deg, #e8d9b8 0%, #d4c4a0 100%);
     border: 4px solid #A47B39;
     border-radius: 8px;
@@ -89,14 +93,14 @@ body {
     width: 100%;
 }
 
-.btn:hover {
+.btn:hover, .action-btn:hover{
     transform: translateY(-3px);
     box-shadow: 0 12px 20px rgba(212, 165, 116, 0.6), 
                 inset 0 2px 0 rgba(255, 255, 255, 0.5);
     background: linear-gradient(135deg, #f0e4c3 0%, #DEBB83 100%);
 }
 
-.btn:active {
+.btn:active, .action-btn:active {
     transform: translateY(-1px);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5), 
                 inset 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -118,6 +122,13 @@ body {
     background: linear-gradient(135deg, #DEBB83 0%, #DEBB83 100%);
 }
 
+.action-btn{
+    background: linear-gradient(135deg, #DEBB83 0%, #DEBB83 100%);
+}
+/* ======= FIM HOME ======= */
+
+
+/* ======= CRIAÇÃO DE PERSONAGENS ======= */
 /* Página de criação */
 .container-criacao{
     background-image: url(./imagens-de-fundo/fogueira-background.gif);
@@ -163,26 +174,6 @@ body {
     margin-bottom: 2rem;
 }
 
-.class-card {
-    position: relative;
-    border-radius: 18px;
-    padding: 1.8rem 1.5rem;
-    width: 260px;
-    min-height: 100px;
-    text-align: center;
-    transition: transform 0.5s ease, opacity 0.25s ease;
-    cursor: pointer;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.class-card p {
-    color: #e8d9b8;
-}
-
 .class-card h3 {
     font-size: 2rem;
     color: #ffffff;
@@ -190,33 +181,15 @@ body {
     transition: font-size 0.2s ease;
 }
 
-
 .class-card.dimmed {
-    transform: scale(0.9);
+    transform: scale(1.02);
     opacity: 0.35;
+    margin-left: 20px;
+    margin-right: 10px;
 }
 
-.subclasses {
-    margin-top: 1.2rem;
-    text-align: left;
-}
-
-.subclass h4 {
-    color: #d4a574;
-    margin-bottom: 0.2rem;
-}
-
-.subclass p {
-    font-size: 0.9rem;
-    line-height: 1.4;
-    color: #e8d9b8;
-    margin-bottom: 0.8rem;
-}
-
-.class-hint {
-    font-size: 1rem;
-    color: rgba(232, 217, 184, 0.85);
-    margin-bottom: 1.5rem;
+.class-card :hover{
+    cursor: pointer;
 }
 
 @media (max-width: 800px) {
@@ -261,31 +234,347 @@ body {
     text-shadow: 0 0 10px rgba(232, 217, 184, 0.5);
 }
 
-/* Página de personagens */
-.characters-list {
-    max-width: 800px;
-    margin: 2rem auto;
+.classes-grid, .subclasses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
 }
 
-.character-card {
-    background: rgba(212, 165, 116, 0.1);
-    border: 2px solid #8b6f47;
-    border-radius: 10px;
+.class-card, .subclass-card {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
     padding: 1.5rem;
-    margin-bottom: 1rem;
-    color: #e8d9b8;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.character-card h3 {
-    color: #d4a574;
-    font-size: 1.5rem;
+.class-card:hover, .subclass-card:hover {
+    border-color: #c97e5a;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(201, 126, 90, 0.3);
+}
+
+.class-card.selected, .subclass-card.selected {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(201, 126, 90, 0.5);
+}
+
+.class-card h3, .subclass-card h3 {
+    color: #c97e5a;
+    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
+}
+
+.class-card p, .subclass-card p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #b8a88a;
+}
+
+/* Animação de surgimento do texto */
+.creation-step {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.creation-step.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilo das perguntas */
+.question-text {
+    font-size: 25px;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    min-height: 150px;
+    font-family: inherit;
+    color: #3b3358;
+}
+
+.options-container {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.option-btn {
+    background: #1e1410;
+    border: 2px solid #3d2a20;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    color: #d4c5a9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    min-width: 200px;
+}
+
+.option-btn:hover {
+    border-color: #c97e5a;
+    background: #2a1c15;
+    transform: scale(1.05);
+}
+
+.option-btn.highlight {
+    border-color: #c97e5a;
+    background: #c97e5a20;
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(201, 126, 90, 0.6);
+}
+
+/* Barra de progresso */
+.progress-bar {
+    margin-top: 2rem;
+    height: 4px;
+    background: #3d2a20;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #c97e5a;
+    transition: width 0.3s ease;
+}
+
+/* Nome do Player */
+#player-name {
+    width: 100%;
+    padding: 1rem;
+    background: #1e1410;
+    border: 2px solid #3d2a20;
+    border-radius: 8px;
+    color: #d4c5a9;
+    font-size: 1.1rem;
+    margin: 1rem 0;
+}
+
+/* Animação de loading */
+.loading-animation {
+    text-align: center;
+    padding: 3rem;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+/* ======= FIM CRIAÇÃO DE PERSONAGENS ======= */
+
+
+/* ======= PERSONAGENS SALVOS ======= */
+/* Página de personagens criados */
+.salvos{
+    background-image: url(./imagens-de-fundo/registro-background.jpg);
+}
+
+.saved-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.characters-grid-saved {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.saved-card {
+    display: flex;
+    gap: 1.5rem;
+    background: #1e1410;
+    border: 2px solid #3d2a20;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.saved-card:hover {
+    border-color: #c97e5a;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(201, 126, 90, 0.2);
+}
+
+/* Área da imagem do personagem */
+.character-avatar {
+    flex-shrink: 0;
+    width: 100px;
+    text-align: center;
+}
+
+.character-avatar img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #c97e5a;
+    background: #0d0805;
+    transition: transform 0.3s ease;
+}
+
+.character-avatar img:hover {
+    transform: scale(1.05);
+}
+
+/* Área das informações */
+.character-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.character-info h3 {
+    color: #c97e5a;
+    font-size: 1.4rem;
+    border-bottom: 1px solid #3d2a20;
+    padding-bottom: 0.5rem;
+    margin: 0;
+}
+
+.class-badge {
+    display: inline-block;
+    background: #2a1c15;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    width: fit-content;
+}
+
+/* Status empilhados verticalmente */
+.stats-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.stat-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #0d0805;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+}
+
+.stat-icon {
+    font-size: 1.2rem;
+    width: 32px;
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8b6b4a;
+    min-width: 35px;
+}
+
+.stat-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #c97e5a;
+    margin-left: auto;
+}
+
+/* Lista de habilidades */
+.abilities-list {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #3d2a20;
+}
+
+.abilities-list h4 {
+    font-size: 0.8rem;
+    color: #8b6b4a;
     margin-bottom: 0.5rem;
 }
 
-.character-card p {
-    margin: 0.3rem 0;
+.abilities-list ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
+.abilities-list li {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+    background: #2a1c15;
+    border-radius: 15px;
+    color: #b8a88a;
+}
+
+.abilities-list li::before {
+    content: "⚔️ ";
+    color: #c97e5a;
+}
+
+.date {
+    font-size: 0.7rem;
+    color: #6b4a3a;
+    margin-top: 0.5rem;
+    text-align: right;
+}
+
+/* Responsivo: em telas pequenas, imagem fica em cima */
+@media (max-width: 600px) {
+    .saved-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .character-avatar {
+        width: 100px;
+    }
+    
+    .stat-row {
+        justify-content: space-between;
+    }
+    
+    .class-badge {
+        margin: 0 auto;
+    }
+}
+
+.date {
+    font-size: 0.7rem;
+    color: #6b4a3a;
+    margin-top: 1rem;
+    text-align: right;
+}
+
+.loading {
+    text-align: center;
+    color: #c97e5a;
+    padding: 3rem;
+}
+
+.empty-message {
+    text-align: center;
+    color: #8b6b4a;
+    padding: 3rem;
+    font-style: italic;
+}
+/* ======= FIM PERSONAGENS SALVOS ======= */
+
+
+/* ======= CRÉDITOS ======= */
 /* Página de créditos */
 .creditos{
     background-image: url(./imagens-de-fundo/creditos-background.png);
@@ -370,10 +659,12 @@ body {
     margin-bottom: 1rem;
     line-height: 1.6;
 }
+/* ======= FIM CRÉDITOS ======= */
 
+
+/* ======= BOTÕES DE VOLTA AO MENU E RESPONSIVIDADE ======= */
 /* Botões de volta ao Menu */
-
-.back-btn {
+.back-btn, .action-btn {
     background: linear-gradient(135deg, #e8d9b8 0%, #d4c4a0 100%);
     border: 4px solid #8b6f47;
     border-radius: 8px;
@@ -388,13 +679,13 @@ body {
     margin-top: 2rem;
 }
 
-.back-btn:hover {
+.back-btn:hover, .action-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 15px rgba(212, 165, 116, 0.6);
 }
 
-/* Responsividade */
 
+/* Responsividade */
 @media (max-width: 768px) {
     .title {
         font-size: 3rem;
@@ -410,3 +701,4 @@ body {
         gap: 15px;
     }
 }
+/* ======= FIM BOTÕES DE VOLTA AO MENU E RESPONSIVIDADE ======= */
