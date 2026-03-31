@@ -190,42 +190,6 @@ body {
     transition: font-size 0.2s ease;
 }
 
-.class-card.dimmed h3 {
-    font-size: 1.6rem;
-}
-
-.class-cta {
-    font-size: 0.9rem;
-    color: rgba(232, 217, 184, 0.9);
-    margin-bottom: 1.2rem;
-}
-
-.class-details {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: opacity 0.25s ease, max-height 0.35s ease;
-}
-
-.class-card.active {
-    transform: scale(1.05);
-    border-color: #d4a574;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-    flex-direction: row;
-    align-items: flex-start;
-    width: 420px;
-}
-
-.class-card.active .class-details {
-    opacity: 1;
-    max-height: 600px;
-    margin-left: 1.5rem;
-    text-align: left;
-}
-
-.class-card.active h3 {
-    align-self: center;
-}
 
 .class-card.dimmed {
     transform: scale(0.9);
