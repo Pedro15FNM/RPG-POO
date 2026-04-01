@@ -531,6 +531,145 @@ body {
     text-align: right;
 }
 
+/* Tooltip para habilidades */
+.habilidade-item {
+    position: relative;
+    cursor: help;
+    transition: all 0.2s ease;
+}
+
+.habilidade-item:hover {
+    background: #c97e5a;
+    color: #1e1410;
+    transform: scale(1.05);
+}
+
+.tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+    width: 250px;
+    background-color: #1e1410;
+    color: #d4c5a9;
+    text-align: center;
+    border: 1px solid #c97e5a;
+    border-radius: 8px;
+    padding: 0.5rem;
+    position: absolute;
+    z-index: 100;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.3s, visibility 0.3s;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    white-space: normal;
+    pointer-events: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Seta do tooltip */
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #c97e5a transparent transparent transparent;
+}
+
+/* Mostrar tooltip ao passar o mouse */
+.habilidade-item:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Tooltip responsivo */
+@media (max-width: 600px) {
+    .tooltip-text {
+        width: 200px;
+        font-size: 0.7rem;
+        bottom: auto;
+        top: 125%;
+    }
+    
+    .tooltip-text::after {
+        top: auto;
+        bottom: 100%;
+        border-color: transparent transparent #c97e5a transparent;
+    }
+}
+
+/*Alerta de habilidade aprendida */
+.alerta-habilidade {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    transform: translateX(120%);
+    transition: transform 0.3s ease;
+}
+
+.alerta-habilidade.mostrar {
+    transform: translateX(0);
+}
+
+.alerta-conteudo {
+    background: linear-gradient(135deg, #1e1410 0%, #2a1c15 100%);
+    border-left: 4px solid #c97e5a;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    color: #d4c5a9;
+    font-size: 0.9rem;
+    min-width: 280px;
+}
+
+.alerta-icone {
+    font-size: 1.5rem;
+    animation: pulse 0.5s ease;
+}
+
+.alerta-texto strong {
+    color: #c97e5a;
+    font-weight: bold;
+}
+
+.alerta-fechar {
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #8b6b4a;
+    transition: color 0.2s;
+    margin-left: 0.5rem;
+}
+
+.alerta-fechar:hover {
+    color: #c97e5a;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Responsivo para alerta */
+@media (max-width: 600px) {
+    .alerta-conteudo {
+        min-width: 240px;
+        padding: 0.75rem 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .alerta-icone {
+        font-size: 1.2rem;
+    }
+}
+
 /* Responsivo: em telas pequenas, imagem fica em cima */
 @media (max-width: 600px) {
     .saved-card {

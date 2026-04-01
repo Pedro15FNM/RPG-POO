@@ -114,7 +114,7 @@ const perguntas = {
     }
 };
 
-    // Habilidades específicas por subclasse
+// Habilidades específicas por subclasse
 const habilidadesPorSubclasse = {
     Arqueiro: ["Chuva de Flechas", "Tiro de Precisão", "Marca do Caçador", "Armadilha de Caça", "Recuo Ágil", "Flecha Perfurante"],
     Pistoleiro: ["Saque Relâmpago", "Tiro Rápido", "Bala Ricochete", "Execução", "Cobertura Tática", "Tiro de Precisão"],
@@ -124,7 +124,58 @@ const habilidadesPorSubclasse = {
     Barbaro: ["Ataque", "Fúria", "Investida Brutal", "Pele de Ferro", "Grito de Guerra", "Retaliação"]
 };
 
-    // Estado da criação
+    // ========== DESCRIÇÕES DAS HABILIDADES ==========
+const descricoesHabilidades = {
+    // Habilidades do Bárbaro
+    "Ataque": "Golpe direto e confiável. Dano: 1d12.",
+    "Fúria": "Estado de combate brutal por 2 turnos. +2 de dano e Vantagem em ataques.",
+    "Investida Brutal": "Avança com força total. Dano: 2d8 + 1d4 contra alvo em Desvantagem.",
+    "Pele de Ferro": "Endurece o corpo. Reduz pela metade o dano recebido por 2 turnos.",
+    "Grito de Guerra": "Ruge para enfraquecer o inimigo. +2 de dano e inimigo em Desvantagem.",
+    "Retaliação": "Responde ao dano recebido. Dano: 1d8. Só pode ser usada após sofrer dano.",
+
+    // Habilidades do Arqueiro
+    "Chuva de Flechas": "Dispara múltiplas flechas. Dano: 2d6 (+1d4 se alvo marcado). Custo: 5 PE, 3 flechas.",
+    "Tiro de Precisão": "Disparo calculado. Dano: 3d6 (+1d6 se alvo marcado). Custo: 6 PE, 1 flecha.",
+    "Marca do Caçador": "Marca o alvo. Dano dobrado do arqueiro por 3 turnos. Custo: 8 PE.",
+    "Armadilha de Caça": "Prepara armadilha. Inimigo em Desvantagem na próxima rolagem. Custo: 3 PE.",
+    "Recuo Ágil": "Recuo rápido. +2 de CA até o próximo turno. Custo: 2 PE.",
+    "Flecha Perfurante": "Tiro que atravessa defesa. Dano: 2d8 (ignora 2 CA). Custo: 4 PE, 1 flecha.",
+    "Tiro de Flecha": "Disparo básico. Dano: 1d8. Custo: 1 PE, 1 flecha.",
+
+    // Habilidades do Pistoleiro
+    "Saque Relâmpago": "Saque instantâneo. Vantagem no próximo ataque. Custo: 2 PE.",
+    "Tiro Rápido": "Disparo veloz. Dano: 1d8, +1 na próxima rolagem. Custo: 2 PE, 1 bala.",
+    "Bala Ricochete": "Disparo que ricocheteia. Dano: 2d6 + 1d4. Custo: 4 PE, 1 bala.",
+    "Execução": "Tiro finalizador. Dano: 4d6 (+2 se alvo <50% HP). Custo: 8 PE, 1 bala.",
+    "Cobertura Tática": "Defesa rápida. -2 no próximo dano recebido. Custo: 3 PE.",
+
+    // Habilidades do Mago de Fogo
+    "Bola de Fogo": "Projétil de fogo. Dano: 3d6. Custo: 4 PE.",
+    "Círculo de Incineração": "Chamas circulares. Dano ao contato corpo a corpo por 2 turnos. Custo: 8 PE.",
+    "Fênix": "Pássaro flamejante devastador. Dano: 8d6. Custo: 10 PE.",
+    "Muralha de Chamas": "Barreira de fogo. Inimigo em Desvantagem ao atacar você. Custo: 5 PE.",
+    "Explosão Flamejante": "Explosão concentrada. Dano: 4d6 + queimadura de 1d4. Custo: 6 PE.",
+    "Armadura Ígnea": "Armadura de fogo. -2 de dano por golpe por 2 turnos. Custo: 4 PE.",
+
+    // Habilidades do Necromante
+    "Putrefação": "Drena vida do inimigo. Dano: 1d8, cura 1d8. Custo: 8 PE.",
+    "Erga-se": "Invoca zumbis (até 4) ou ordena ataque em massa. Custo: 8 PE.",
+    "Condenado": "Maldição devastadora. Dano: 3d10. Custo: 10 PE.",
+    "Sifão de Vida": "Rouba energia vital. Dano: 2d6, cura metade. Custo: 5 PE.",
+    "Maldição da Sepultura": "Amaldiçoa o alvo. Desvantagem e bloqueio de cura por 2 turnos. Custo: 4 PE.",
+    "Ossos Protetores": "Escudo de ossos. -2 no próximo dano. Custo: 3 PE.",
+
+    // Habilidades do Mago de Gelo
+    "Tempestade de Gelo": "Ventania congelante. Aplica Desvantagem. Custo: 2 PE.",
+    "Prisão Glacial": "Aprisiona em gelo. Paralisa o oponente por 1 turno. Custo: 4 PE.",
+    "Ice Age": "Era do Gelo devastadora. Dano: 4d8. Custo: 10 PE.",
+    "Lâminas de Gelo": "Estilhaços cortantes. Dano: 2d6 (+1d4 se alvo em Desvantagem). Custo: 5 PE.",
+    "Barreira de Gelo": "Escudo de gelo. -2 de dano por golpe por 2 turnos. Custo: 4 PE.",
+    "Congelamento Profundo": "Congela parcialmente. Dano: 1d8 e Desvantagem no próximo ataque. Custo: 6 PE."
+};
+
+// Estado da criação
 let estadoCriacao = {
     classe: null,
     subclasse: null,
@@ -162,7 +213,7 @@ async function animateOptions(container) {
     // ========== CARREGAR PERGUNTAS ==========
 function carregarPerguntasParaClasse(classe, subclasse) {
     const perguntasClasse = [];
-    
+
     // Adiciona perguntas de atributos
     if (perguntas[classe] && perguntas[classe].atributos1) {
         perguntasClasse.push({ ...perguntas[classe].atributos1, tipo: 'atributo' });
@@ -170,7 +221,7 @@ function carregarPerguntasParaClasse(classe, subclasse) {
     if (perguntas[classe] && perguntas[classe].atributos2) {
         perguntasClasse.push({ ...perguntas[classe].atributos2, tipo: 'atributo' });
     }
-    
+
     // Adiciona perguntas de habilidades específicas da subclasse
     if (subclasse === 'Arqueiro' || subclasse === 'Pistoleiro') {
         perguntasClasse.push({
@@ -190,7 +241,7 @@ function carregarPerguntasParaClasse(classe, subclasse) {
             tipo: 'habilidade'
         });
         perguntasClasse.push({
-            texto: subclasse === 'Arqueiro' 
+            texto: subclasse === 'Arqueiro'
                 ? "Você nunca caçou alguém como você. De que característica sua você teria mais medo?"
                 : "VOCÊ FOI BALEADO! O que você faz?",
             opcoes: subclasse === 'Arqueiro'
@@ -207,25 +258,25 @@ function carregarPerguntasParaClasse(classe, subclasse) {
     } else if (subclasse.includes('Mago')) {
         const tipoMago = subclasse.replace('Mago', '');
         perguntasClasse.push({
-            texto: tipoMago === 'Fogo' 
+            texto: tipoMago === 'Fogo'
                 ? "O fogo te fascina. Esse fogo deve queimar sob sua ordem ou sozinho?"
                 : tipoMago === 'Gelo'
-                ? "O frio pode ser belo ou nefasto. Qual sua preferência?"
-                : "A necromancia te fascina. A morte deve ser espalhada ou revertida?",
+                    ? "O frio pode ser belo ou nefasto. Qual sua preferência?"
+                    : "A necromancia te fascina. A morte deve ser espalhada ou revertida?",
             opcoes: tipoMago === 'Fogo'
                 ? [
                     { texto: "Sob minha ordem", habilidade: "Bola de Fogo" },
                     { texto: "Sozinho", habilidade: "Círculo de Incineração" }
                 ]
                 : tipoMago === 'Gelo'
-                ? [
-                    { texto: "Sólido e organizado", habilidade: "Prisão Glacial" },
-                    { texto: "Disperso e caótico", habilidade: "Tempestade de Gelo" }
-                ]
-                : [
-                    { texto: "Espalhada", habilidade: "Putrefação" },
-                    { texto: "Revertida", habilidade: "Erga-se" }
-                ],
+                    ? [
+                        { texto: "Sólido e organizado", habilidade: "Prisão Glacial" },
+                        { texto: "Disperso e caótico", habilidade: "Tempestade de Gelo" }
+                    ]
+                    : [
+                        { texto: "Espalhada", habilidade: "Putrefação" },
+                        { texto: "Revertida", habilidade: "Erga-se" }
+                    ],
             tipo: 'habilidade'
         });
         perguntasClasse.push({
@@ -249,7 +300,7 @@ function carregarPerguntasParaClasse(classe, subclasse) {
         perguntasClasse.push(perguntas.barbaro.habilidades2);
         perguntasClasse.push(perguntas.barbaro.habilidades3);
     }
-    
+
     return perguntasClasse;
 }
 
@@ -258,21 +309,21 @@ async function exibirPergunta(index) {
     const questionContainer = document.getElementById('step-questions');
     const questionText = document.getElementById('question-text');
     const optionsContainer = document.getElementById('options-container');
-    
+
     if (index >= perguntasDaClasse.length) {
         finalizarPersonagem();
         return;
     }
-    
+
     const pergunta = perguntasDaClasse[index];
-    
+
     // Atualizar progresso
     const progress = ((index) / perguntasDaClasse.length) * 100;
     document.getElementById('progress-fill').style.width = `${progress}%`;
-    
+
     // Texto datilografado
     await typeWriter(questionText, pergunta.texto, 25);
-    
+
     // Criar botões de opção
     optionsContainer.innerHTML = '';
     pergunta.opcoes.forEach((opcao, idx) => {
@@ -283,7 +334,7 @@ async function exibirPergunta(index) {
             // Animação de clique
             btn.style.transform = 'scale(0.95)';
             setTimeout(() => btn.style.transform = '', 150);
-            
+
             // Registrar escolha
             estadoCriacao.respostas.push({
                 pergunta: pergunta.texto,
@@ -291,28 +342,67 @@ async function exibirPergunta(index) {
                 efeito: opcao.efeito || null,
                 habilidade: opcao.habilidade || null
             });
-            
+
             // Aplicar efeitos
             if (opcao.efeito) {
                 if (opcao.efeito.hp) estadoCriacao.atributos.hp += opcao.efeito.hp;
                 if (opcao.efeito.pe) estadoCriacao.atributos.pe += opcao.efeito.pe;
                 if (opcao.efeito.ca) estadoCriacao.atributos.ca += opcao.efeito.ca;
             }
-            
+
             if (opcao.habilidade && !estadoCriacao.habilidadesSelecionadas.includes(opcao.habilidade)) {
                 estadoCriacao.habilidadesSelecionadas.push(opcao.habilidade);
+
+                // ========== ALERTA DE HABILIDADE APRENDIDA ==========
+                mostrarAlertaHabilidade(opcao.habilidade);
             }
-            
+
             // Animar opções antes de avançar
             await animateOptions(optionsContainer);
-            
+
+                // ========== ALERTA DE HABILIDADE APRENDIDA ==========
+            function mostrarAlertaHabilidade(nomeHabilidade) {
+                // Cria o elemento de alerta
+                const alerta = document.createElement('div');
+                alerta.className = 'alerta-habilidade';
+                alerta.innerHTML = `
+        <div class="alerta-conteudo">
+            <span class="alerta-texto">Habilidade <strong>${nomeHabilidade}</strong> aprendida!</span>
+            <span class="alerta-fechar">×</span>
+        </div>
+        `;
+
+                // Adiciona ao body
+                document.body.appendChild(alerta);
+
+                // Animação de entrada
+                setTimeout(() => {
+                    alerta.classList.add('mostrar');
+                }, 10);
+
+                // Configura botão de fechar
+                const fecharBtn = alerta.querySelector('.alerta-fechar');
+                fecharBtn.addEventListener('click', () => {
+                    alerta.classList.remove('mostrar');
+                    setTimeout(() => alerta.remove(), 300);
+                });
+
+                // Auto-fechar após 3 segundos
+                setTimeout(() => {
+                    if (alerta.parentNode) {
+                        alerta.classList.remove('mostrar');
+                        setTimeout(() => alerta.remove(), 300);
+                    }
+                }, 3000);
+            }
+
             // Avançar para próxima pergunta
             perguntaAtual++;
             exibirPergunta(perguntaAtual);
         };
         optionsContainer.appendChild(btn);
     });
-    
+
     // Animação de entrada das opções
     const btns = optionsContainer.querySelectorAll('.option-btn');
     btns.forEach((btn, i) => {
@@ -329,12 +419,12 @@ async function exibirPergunta(index) {
     // ========== FINALIZAR PERSONAGEM ==========
 function finalizarPersonagem() {
     // Garantir 3 habilidades (completar se necessário)
-    const habilidadesBase = habilidadesPorSubclasse[estadoCriacao.subclasse] || 
-                           habilidadesPorSubclasse[estadoCriacao.classe] || [];
-    
+    const habilidadesBase = habilidadesPorSubclasse[estadoCriacao.subclasse] ||
+        habilidadesPorSubclasse[estadoCriacao.classe] || [];
+
     const todasHabilidades = [...new Set([...estadoCriacao.habilidadesSelecionadas, ...habilidadesBase.slice(0, 3)])];
     const habilidadesFinais = todasHabilidades.slice(0, 3);
-    
+
     // Criar objeto do personagem
     const personagem = new Personagem(
         estadoCriacao.nome,
@@ -344,11 +434,11 @@ function finalizarPersonagem() {
         estadoCriacao.atributos,
         habilidadesFinais
     );
-    
+
     // Salvar no histórico
     const historico = new HistoricoPersonagens();
     historico.adicionar(personagem);
-    
+
     // Redirecionar para página de personagens salvos
     window.location.href = 'personagens-salvos.html';
 }
@@ -357,18 +447,18 @@ function finalizarPersonagem() {
 document.addEventListener('DOMContentLoaded', () => {
     const steps = document.querySelectorAll('.creation-step');
     let currentStep = 0;
-    
+
     function showStep(stepIndex) {
         steps.forEach((step, i) => {
             step.classList.toggle('active', i === stepIndex);
         });
     }
-    
+
         // ========== FUNÇÃO PARA CRIAR OPÇÕES DE SUBCLASSE DINAMICAMENTE ==========
     function mostrarSubclasses(classe) {
         const subclassTitle = document.getElementById('subclass-title');
         const subclassOptions = document.getElementById('subclass-options');
-        
+
         if (classe === 'barbaro') {
             subclassTitle.textContent = 'Bárbaro não possui especializações. Confirme para continuar:';
             subclassOptions.innerHTML = `
@@ -406,57 +496,57 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
         }
-        
+
         // Adicionar evento de clique para cada subclasse
         document.querySelectorAll('.subclass-card').forEach(sub => {
             sub.addEventListener('click', () => {
                 document.querySelectorAll('.subclass-card').forEach(s => s.classList.remove('selected'));
                 sub.classList.add('selected');
                 estadoCriacao.subclasse = sub.getAttribute('data-subclass');
-                
+
                 // Avançar para step de nome
                 currentStep = 2;
                 showStep(currentStep);
             });
         });
     }
-    
+
         // ========== SELEÇÃO DE CLASSE ==========
     document.querySelectorAll('.class-card').forEach(card => {
         card.addEventListener('click', () => {
             // Remove seleção anterior
             document.querySelectorAll('.class-card').forEach(c => c.classList.remove('selected'));
             card.classList.add('selected');
-            
+
             // Guarda a classe escolhida
             estadoCriacao.classe = card.getAttribute('data-class');
-            
+
             // Mostra as subclasses DINAMICAMENTE baseado na classe escolhida
             mostrarSubclasses(estadoCriacao.classe);
-            
+
             // Avança para o step de subclasse
             currentStep = 1;
             showStep(currentStep);
         });
     });
-    
-        // ========== BOTÕES VOLTAR ==========
+
+    // ========== BOTÕES VOLTAR ==========
     document.getElementById('back-to-class')?.addEventListener('click', () => {
         currentStep = 0;
         showStep(currentStep);
     });
-    
+
     document.getElementById('back-to-subclass')?.addEventListener('click', () => {
         currentStep = 1;
         showStep(currentStep);
     });
-    
+
     document.getElementById('back-to-name')?.addEventListener('click', () => {
         currentStep = 2;
         showStep(currentStep);
     });
-    
-        // ========== CONFIRMAÇÃO DE NOME ==========
+
+    // ========== CONFIRMAÇÃO DE NOME ==========
     document.getElementById('confirm-name')?.addEventListener('click', () => {
         const nome = document.getElementById('player-name').value.trim();
         if (!nome) {
@@ -464,24 +554,24 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         estadoCriacao.nome = nome;
-        
+
         // Carregar perguntas baseadas na classe/subclasse
         perguntasDaClasse = carregarPerguntasParaClasse(estadoCriacao.classe, estadoCriacao.subclasse);
         perguntaAtual = 0;
-        
+
         // Resetar atributos base
         estadoCriacao.atributos = { hp: 100, pe: 20, ca: 10 };
         estadoCriacao.habilidadesSelecionadas = [];
         estadoCriacao.respostas = [];
-        
+
         // Ir para step de perguntas
         currentStep = 3;
         showStep(currentStep);
-        
+
         // Iniciar perguntas
         exibirPergunta(0);
     });
-    
+
     // Iniciar no passo 0 (classe)
     showStep(0);
 });
@@ -494,22 +584,22 @@ document.addEventListener('DOMContentLoaded', () => {
 function exibirPersonagensSalvos() {
     const container = document.getElementById('lista-personagens');
     if (!container) return;
-    
+
     const historico = new HistoricoPersonagens();
     const personagens = historico.obterUltimos();
-    
+
     if (personagens.length === 0) {
         container.innerHTML = '<div class="empty-message">Nenhum personagem criado ainda. Crie o primeiro!</div>';
         return;
     }
-    
+
     // Exibir do mais antigo para o mais recente
     const personagensOrdenados = [...personagens].reverse();
-    
+
     container.innerHTML = personagensOrdenados.map(p => {
         // Define a imagem baseada na classe do personagem
         let imagemPersonagem = getImagemPorClasse(p.classe, p.subclasse);
-        
+
         return `
             <div class="saved-card">
                 <div class="character-avatar">
@@ -537,12 +627,17 @@ function exibirPersonagensSalvos() {
                         </div>
                     </div>
                     
-                    <div class="abilities-list">
-                        <h4> Habilidades</h4>
-                        <ul>
-                            ${(p.habilidades || []).map(h => `<li>${escapeHtml(h)}</li>`).join('')}
-                        </ul>
-                    </div>
+                <div class="abilities-list">
+                    <h4>📖 Habilidades</h4>
+                    <ul>
+                        ${(p.habilidades || []).map(h => `
+                        <li class="habilidade-item" data-habilidade="${escapeHtml(h)}">
+                            ${escapeHtml(h)}
+                            <span class="tooltip-text">${descricoesHabilidades[h] || 'Descrição em breve...'}</span>
+                        </li>
+                        `).join('')}
+                    </ul>
+                </div>
                     
                     <div class="date">
                         Criado em: ${new Date(p.dataCriacao).toLocaleString()}
@@ -557,34 +652,34 @@ function exibirPersonagensSalvos() {
 function getImagemPorClasse(classe, subclasse) {
     // Define o caminho base da pasta de imagens
     const basePath = 'imagens-de-fundo/';
-    
+
     // Mapeamento de classes para imagens específicas
     const imagens = {
         // Bárbaro
         barbaro: `${basePath}barbaro-masc-rosto.png`,
-        
+
         // Caçadores
         cacador_Arqueiro: `${basePath}cacador-arqueiro-fem-rosto.png`,
         cacador_Pistoleiro: `${basePath}cacador-pist-fem-rosto.png`,
-        
+
         // Magos
         mago_MagoFogo: `${basePath}mago-fogo-masc-rosto.png`,
         mago_MagoGelo: `${basePath}mago-gelo-masc-rosto.png`,
         mago_Necromante: `${basePath}mago-necrom-fem-rosto.png`,
-        
+
         // Fallback padrão
         padrao: `${basePath}barbaro-masc-rosto.png`
     };
-    
+
     // Verifica se tem subclasse específica
     if (subclasse) {
         const chave = `${classe}_${subclasse}`;
         if (imagens[chave]) return imagens[chave];
     }
-    
+
     // Se não, usa imagem da classe principal
     if (imagens[classe]) return imagens[classe];
-    
+
     // Fallback
     return imagens.padrao;
 }
